@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Car, MapPin, Calendar, Search, ShieldCheck, Leaf, Wallet, ArrowRight, Star, Wind, Heart, Globe, TrendingDown, Users, CheckCircle2, MessageSquare, Download, Map as MapIcon, ShieldAlert, Smartphone, QrCode, MapPinned, ChevronDown, UserCheck, PhoneCall, Zap, IndianRupee, Clock, Navigation, Share2, Mail, Bell, Sparkles} from 'lucide-react';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 export default function App() {
   const [activeFaq, setActiveFaq] = useState(null);
   const [km, setKm] = useState(20);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleFaq = (index) => {
     setActiveFaq(activeFaq === index ? null : index);
@@ -75,42 +76,7 @@ export default function App() {
       </div>
 
       {/* 2. NAVBAR */}
-      <nav className="w-full bg-white/80 backdrop-blur-md px-4 md:px-6 py-3 shadow-sm flex items-center justify-between my-4 md:my-6 bento-box border border-blue-200 z-50 md:rounded-full md:max-w-6xl md:mx-4">
-        <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-          <img src="/Applauncher.svg" alt="Wayloshare" className="w-8 h-8 rounded-lg" />
-          <span className="font-bold text-slate-900 tracking-tight text-lg md:text-xl">wayloshare</span>
-        </Link>
-        
-        {/* Desktop Menu */}
-        <div className="hidden md:flex gap-8 text-sm font-bold text-slate-600">
-          <Link to="/blogs" className="hover:text-blue-500">Blogs</Link>
-          <Link to="/safety" className="hover:text-blue-500">Safety</Link>
-          <Link to="/contact" className="hover:text-blue-500">Contact</Link>
-        </div>
-
-        {/* Mobile Hamburger Menu */}
-        <button 
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
-        >
-          <div className={`w-6 h-0.5 bg-slate-900 transition-all ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
-          <div className={`w-6 h-0.5 bg-slate-900 transition-all ${mobileMenuOpen ? 'opacity-0' : ''}`}></div>
-          <div className={`w-6 h-0.5 bg-slate-900 transition-all ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
-        </button>
-      </nav>
-
-      {/* Mobile Menu Dropdown */}
-      {mobileMenuOpen && (
-        <div className="md:hidden w-full bg-white/95 backdrop-blur-md border-b border-blue-200 shadow-lg z-40">
-          <div className="flex flex-col gap-4 p-6">
-            <Link to="/blogs" onClick={() => setMobileMenuOpen(false)} className="font-bold text-slate-700 hover:text-blue-500 py-2">Blogs</Link>
-            <Link to="/safety" onClick={() => setMobileMenuOpen(false)} className="font-bold text-slate-700 hover:text-blue-500 py-2">Safety</Link>
-            <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="font-bold text-slate-700 hover:text-blue-500 py-2">Contact</Link>
-            <Link to="/how-it-works" onClick={() => setMobileMenuOpen(false)} className="font-bold text-slate-700 hover:text-blue-500 py-2">How It Works</Link>
-            <Link to="/careers" onClick={() => setMobileMenuOpen(false)} className="font-bold text-slate-700 hover:text-blue-500 py-2">Careers</Link>
-          </div>
-        </div>
-      )}
+      <Navbar />
 
       {/* 3. SEARCH BAR */}
       <div className="w-full max-w-5xl bento-box delay-1 mb-8 md:mb-12 px-4">
@@ -493,31 +459,7 @@ export default function App() {
       </div>
 
       {/* FOOTER */}
-      <footer className="w-full bg-gradient-to-r from-blue-200 to-cyan-200 rounded-t-2xl md:rounded-[3rem] p-6 md:p-16 text-slate-900 flex flex-col md:flex-row justify-between items-center md:items-start gap-6 md:gap-8 bento-box delay-5 shadow-2xl">
-        <div className="text-center md:text-left">
-          <div className="flex items-center gap-2 mb-3 md:mb-4 justify-center md:justify-start">
-            <div className="bg-gradient-to-br from-blue-400 to-cyan-400 p-2 rounded-lg text-white shadow-lg flex-shrink-0">
-              <Car size={20} md:size={24} weight="bold" />
-            </div>
-            <span className="text-xl md:text-2xl font-black tracking-tighter text-slate-900 uppercase">wayloshare</span>
-          </div>
-          <p className="text-slate-700 text-xs md:text-sm italic max-w-xs leading-relaxed">"Safar khoobsurat hai, humsafar banaye ise." <br/> Built for India, by Indians.</p>
-        </div>
-        <div className="flex flex-col items-center md:items-end gap-4 md:gap-6 w-full md:w-auto">
-          <button className="bg-gradient-to-r from-blue-400 to-cyan-400 text-white px-6 md:px-10 py-3 md:py-4 rounded-full font-black text-sm md:text-base flex items-center gap-2 md:gap-3 hover:scale-105 transition-transform shadow-xl shadow-blue-300/30 w-full md:w-auto justify-center">
-            <Download size={18} md:size={20} /> Get App Now
-          </button>
-          <div className="flex flex-wrap gap-4 md:gap-8 text-[10px] md:text-[10px] text-slate-700 font-bold uppercase tracking-widest justify-center md:justify-end">
-            <Link to="/blogs" className="hover:text-blue-600 transition-colors">Blogs</Link>
-            <Link to="/safety" className="hover:text-blue-600 transition-colors">Safety Hub</Link>
-            <Link to="/privacy" className="hover:text-blue-600 transition-colors">Privacy</Link>
-            <Link to="/contact" className="hover:text-blue-600 transition-colors">Contact</Link>
-            <Link to="/cancellation" className="text-blue-600 hover:text-blue-700 transition-colors">Cancellation</Link>
-            <Link to="/community-guidelines" className="text-blue-600 hover:text-blue-700 transition-colors">Guidelines</Link>
-            <Link to="/careers" className="text-blue-600 hover:text-blue-700 transition-colors">Careers</Link>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
