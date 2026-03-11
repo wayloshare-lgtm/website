@@ -11,15 +11,27 @@ export default function Safety() {
       <Navbar />
 
       {/* HERO */}
-      <div className="w-full max-w-6xl mb-12 px-4">
-        <div className="bg-gradient-to-r from-blue-300 to-cyan-300 rounded-[3rem] p-12 md:p-16 text-white text-center shadow-2xl">
-          <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight tracking-tighter">
-            Safety is Our <span className="text-yellow-200">Priority</span>
+      <div className="w-full bg-blue-100/50 py-12 md:py-16 px-4 mb-12">
+        <div className="max-w-6xl mx-auto text-center">
+          <div className="flex justify-center mb-6 md:mb-8">
+            <div className="w-16 md:w-20 h-16 md:h-20 bg-blue-300 rounded-full flex items-center justify-center">
+              <span className="text-3xl md:text-4xl">✓</span>
+            </div>
+          </div>
+          <h1 className="text-3xl md:text-5xl font-black text-slate-900 mb-4 md:mb-6">
+            Trust & Safety
           </h1>
-          <p className="text-lg text-white/95 max-w-2xl mx-auto">
-            We're committed to making every ride safe, secure, and trustworthy
+          <p className="text-sm md:text-lg text-slate-700 max-w-2xl mx-auto">
+            Since 2015, members have safely shared over 400 million km on WayloShare.
           </p>
         </div>
+      </div>
+
+      {/* INTRO TEXT */}
+      <div className="w-full max-w-6xl mb-12 px-4">
+        <p className="text-center text-slate-700 text-base md:text-lg font-medium">
+          Here's how we ensure your safety when carpooling on WayloShare:
+        </p>
       </div>
 
       {/* SAFETY FEATURES */}

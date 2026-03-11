@@ -77,30 +77,30 @@ export default function Blog() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-yellow-50 to-purple-50 font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-12 md:pb-20">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-yellow-50 to-purple-50 font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-8 md:pb-20">
       {/* NAVBAR */}
       <Navbar />
 
       {/* HERO SECTION */}
-      <div className="w-full max-w-6xl mb-12 px-4">
-        <div className="bg-gradient-to-r from-blue-300 via-cyan-300 to-purple-300 rounded-[3rem] p-12 md:p-16 text-white text-center shadow-2xl">
-          <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight tracking-tighter">
-            Wayloshare <span className="text-yellow-200">Stories</span>
+      <div className="w-full mb-8 md:mb-12">
+        <div className="bg-transparent rounded-none md:rounded-none p-6 md:p-16 text-white text-center">
+          <h1 className="text-3xl md:text-6xl font-black mb-3 md:mb-6 leading-tight tracking-tighter text-slate-900">
+            Wayloshare <span className="text-blue-600">Stories</span>
           </h1>
-          <p className="text-lg text-white/95 max-w-2xl mx-auto mb-8">
+          <p className="text-sm md:text-lg text-slate-700 max-w-2xl mx-auto mb-4 md:mb-8">
             Tips, stories, and insights from our community of smart commuters
           </p>
           
           {/* SEARCH BAR */}
-          <div className="max-w-2xl mx-auto">
-            <div className="bg-white/20 rounded-full p-4 flex items-center gap-3 backdrop-blur-md border border-white/30">
-              <Search size={24} className="text-white/70" />
+          <div className="max-w-2xl mx-auto px-3 md:px-4">
+            <div className="bg-white rounded-full p-3 md:p-4 flex items-center gap-2 md:gap-3 border border-slate-200 shadow-sm">
+              <span className="text-base md:text-lg">🔍</span>
               <input
                 type="text"
                 placeholder="Search articles..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="bg-transparent outline-none w-full text-white placeholder-white/70 font-bold"
+                className="bg-transparent outline-none w-full text-xs md:text-base text-slate-800 placeholder-slate-400 font-bold"
               />
             </div>
           </div>
@@ -108,46 +108,46 @@ export default function Blog() {
       </div>
 
       {/* BLOG GRID */}
-      <div className="w-full max-w-6xl mb-12 px-4">
+      <div className="w-full max-w-6xl mb-8 md:mb-12 px-3 md:px-4">
         {filteredPosts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {filteredPosts.map((post) => (
-              <div key={post.id} className="bg-white rounded-[2.5rem] border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition-all group cursor-pointer">
+              <div key={post.id} className="bg-white rounded-lg md:rounded-[2.5rem] border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition-all group cursor-pointer">
                 {/* IMAGE */}
-                <div className={`h-48 ${post.image} relative overflow-hidden`}>
+                <div className={`h-40 md:h-48 ${post.image} relative overflow-hidden`}>
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all"></div>
                 </div>
 
                 {/* CONTENT */}
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-bold text-[#1976D2] bg-[#1976D2]/10 px-3 py-1 rounded-full uppercase tracking-widest">
+                <div className="p-4 md:p-6">
+                  <div className="flex items-center gap-2 mb-2 md:mb-3">
+                    <span className="text-xs font-bold text-[#1976D2] bg-[#1976D2]/10 px-2 md:px-3 py-1 rounded-full uppercase tracking-widest">
                       {post.category}
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-black text-slate-900 mb-3 leading-tight group-hover:text-[#1976D2] transition-colors">
+                  <h3 className="text-base md:text-xl font-black text-slate-900 mb-2 md:mb-3 leading-tight group-hover:text-[#1976D2] transition-colors">
                     {post.title}
                   </h3>
 
-                  <p className="text-slate-600 text-sm mb-4 leading-relaxed line-clamp-2">
+                  <p className="text-slate-600 text-xs md:text-sm mb-3 md:mb-4 leading-relaxed line-clamp-2">
                     {post.excerpt}
                   </p>
 
                   {/* META */}
-                  <div className="flex items-center justify-between pt-4 border-t border-slate-100">
-                    <div className="flex items-center gap-3 text-xs text-slate-500">
+                  <div className="flex items-center justify-between pt-3 md:pt-4 border-t border-slate-100">
+                    <div className="flex items-center gap-2 md:gap-3 text-xs text-slate-500">
                       <div className="flex items-center gap-1">
-                        <Calendar size={14} />
-                        {post.date}
+                        <Calendar size={12} md:size={14} />
+                        <span className="text-xs">{post.date}</span>
                       </div>
                     </div>
                     <span className="text-xs font-bold text-[#1976D2]">{post.readTime}</span>
                   </div>
 
                   {/* AUTHOR */}
-                  <div className="flex items-center gap-2 mt-4 pt-4 border-t border-slate-100">
-                    <div className="w-8 h-8 rounded-full bg-[#1976D2] flex items-center justify-center text-white text-xs font-bold">
+                  <div className="flex items-center gap-2 mt-3 md:mt-4 pt-3 md:pt-4 border-t border-slate-100">
+                    <div className="w-6 md:w-8 h-6 md:h-8 rounded-full bg-[#1976D2] flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
                       {post.author.charAt(0)}
                     </div>
                     <span className="text-xs font-bold text-slate-700">{post.author}</span>
@@ -155,36 +155,36 @@ export default function Blog() {
                 </div>
 
                 {/* READ MORE */}
-                <div className="px-6 pb-6">
-                  <button className="w-full bg-[#1976D2]/10 text-[#1976D2] py-3 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-[#1976D2] hover:text-white transition-all">
+                <div className="px-4 md:px-6 pb-4 md:pb-6">
+                  <button className="w-full bg-[#1976D2]/10 text-[#1976D2] py-2 md:py-3 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-[#1976D2] hover:text-white transition-all text-xs md:text-base">
                     Read Article
-                    <ChevronRight size={18} />
+                    <ChevronRight size={14} md:size={18} />
                   </button>
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <div className="text-center py-12">
-            <p className="text-xl text-slate-500 font-bold">No articles found matching your search.</p>
+          <div className="text-center py-8 md:py-12">
+            <p className="text-base md:text-xl text-slate-500 font-bold">No articles found matching your search.</p>
           </div>
         )}
       </div>
 
       {/* NEWSLETTER SECTION */}
-      <div className="w-full max-w-6xl mb-12 px-4">
-        <div className="bg-gradient-to-r from-purple-300 to-pink-300 rounded-2xl md:rounded-[3rem] p-6 md:p-16 text-white text-center shadow-2xl">
-          <h2 className="text-2xl md:text-4xl font-black mb-3 md:mb-4">Stay Updated</h2>
-          <p className="text-sm md:text-lg text-white/95 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
+      <div className="w-full max-w-6xl mb-8 md:mb-12 px-3 md:px-4">
+        <div className="bg-gradient-to-r from-purple-300 to-pink-300 rounded-xl md:rounded-[3rem] p-6 md:p-16 text-white text-center shadow-2xl">
+          <h2 className="text-xl md:text-4xl font-black mb-2 md:mb-4">Stay Updated</h2>
+          <p className="text-xs md:text-lg text-white/95 mb-4 md:mb-8 max-w-2xl mx-auto leading-relaxed">
             Get the latest carpooling tips and community stories delivered to your inbox
           </p>
           <div className="max-w-md mx-auto flex flex-col md:flex-row gap-2 md:gap-3">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 bg-white/20 border border-white/40 rounded-full px-4 md:px-6 py-3 md:py-3 text-sm md:text-base text-white placeholder-white/70 outline-none focus:border-white/70 transition-all"
+              className="flex-1 bg-white/20 border border-white/40 rounded-full px-3 md:px-6 py-2 md:py-3 text-xs md:text-base text-white placeholder-white/70 outline-none focus:border-white/70 transition-all"
             />
-            <button className="bg-white text-purple-600 px-6 md:px-8 py-3 rounded-full font-black text-sm md:text-base hover:scale-105 transition-transform whitespace-nowrap">
+            <button className="bg-white text-purple-600 px-4 md:px-8 py-2 md:py-3 rounded-full font-black text-xs md:text-base hover:scale-105 transition-transform whitespace-nowrap">
               Subscribe
             </button>
           </div>

@@ -7,6 +7,8 @@ import Safety from './Safety';
 import Privacy from './Privacy';
 import Contact from './Contact';
 import HowItWorks from './HowItWorks';
+import HowItWorksRider from './HowItWorksRider';
+import HowItWorksDriver from './HowItWorksDriver';
 import Careers from './Careers';
 import CancellationPolicy from './CancellationPolicy';
 import CommunityGuidelines from './CommunityGuidelines';
@@ -22,6 +24,8 @@ export default function AppRouter() {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
+        <Route path="/how-it-works/rider" element={<HowItWorksRider />} />
+        <Route path="/how-it-works/driver" element={<HowItWorksDriver />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/cancellation" element={<CancellationPolicy />} />
         <Route path="/community-guidelines" element={<CommunityGuidelines />} />
