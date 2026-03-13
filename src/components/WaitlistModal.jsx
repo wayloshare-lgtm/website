@@ -146,13 +146,13 @@ export default function WaitlistModal({ isOpen, onClose }) {
         {/* INITIAL POPUP */}
         {step === 'initial' && (
           <div className="premium-card rounded-[2.5rem] shadow-2xl w-full max-w-sm max-h-[90vh] overflow-hidden animate-in fade-in zoom-in duration-500 flex flex-col border-2 border-blue-100">
-            <div className="flex-1 flex flex-col overflow-y-auto">
-              {/* Close Button */}
+            <div className="flex-1 flex flex-col overflow-y-auto relative">
+              {/* Close Button - More Prominent */}
               <button
                 onClick={onClose}
-                className="absolute top-5 right-5 z-10 bg-white/90 hover:bg-white p-2.5 rounded-full transition-all shadow-lg hover:shadow-xl"
+                className="absolute top-6 right-6 z-20 bg-white hover:bg-slate-100 p-3 rounded-full transition-all shadow-xl hover:shadow-2xl border-2 border-slate-200 hover:border-slate-300"
               >
-                <X size={20} className="text-slate-700" />
+                <X size={24} className="text-slate-800" strokeWidth={3} />
               </button>
 
               {/* SVG Image - Premium styling */}
