@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HiEye, HiShieldCheck, HiLockClosed } from 'react-icons/hi';
-import { Download } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 

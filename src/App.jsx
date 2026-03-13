@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Car, MapPin, ArrowRight, Star, Heart, TrendingDown, Users, CheckCircle2, Map as MapIcon, ShieldAlert, Smartphone, QrCode, MapPinned, ChevronDown, Zap, Clock, Navigation, Bell, Sparkles} from 'lucide-react';
+import { Car, MapPin, ArrowRight, Heart, TrendingDown, Users, CheckCircle2, Map as MapIcon, ShieldAlert, Smartphone, QrCode, MapPinned, ChevronDown, Zap, Clock, Navigation, Sparkles} from 'lucide-react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import WaitlistModal from './components/WaitlistModal';
 
 export default function App() {
   const [activeFaq, setActiveFaq] = useState(null);
+  const [showWaitlist, setShowWaitlist] = useState(true);
 
   const toggleFaq = (index) => {
     setActiveFaq(activeFaq === index ? null : index);
@@ -13,6 +15,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-yellow-50 to-purple-50 font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-12 md:pb-20">
+      {/* WAITLIST MODAL */}
+      <WaitlistModal isOpen={showWaitlist} onClose={() => setShowWaitlist(false)} />
       {/* --- ANIMATION MOTORS (Keyframes) --- */}
       <style>{`
         @keyframes bentoPop {
@@ -110,10 +114,10 @@ export default function App() {
             {/* LEFT CONTENT */}
             <div className="flex flex-col justify-center">
               <h1 className="text-3xl md:text-6xl font-black text-slate-900 leading-tight mb-3 md:mb-6 tracking-tighter">
-                Carpooling for everyone.
+                Why Go Solo?
               </h1>
               <p className="text-xs md:text-lg text-slate-700 mb-4 md:mb-8 leading-relaxed">
-                Join over 2 million people who choose WayloShare to carpool between cities everywhere in India.
+                Join thousands of smart commuters saving money and making connections.
               </p>
               
               {/* APP RATINGS */}
@@ -122,18 +126,18 @@ export default function App() {
                   <div className="text-xs md:text-sm font-bold text-slate-700">
                     <div className="flex items-center gap-1 mb-1">
                       <span className="text-yellow-400">★</span>
-                      <span className="text-xs md:text-sm">4.8 on App Store</span>
+                      <span className="text-xs md:text-sm">Coming Soon</span>
                     </div>
-                    <div className="text-xs text-slate-500">25k reviews</div>
+                    <div className="text-xs text-slate-500">Join the waitlist</div>
                   </div>
                 </div>
                 <div className="bg-white/70 backdrop-blur-sm rounded-lg md:rounded-xl p-2 md:p-4 border border-blue-200 flex items-center gap-2">
                   <div className="text-xs md:text-sm font-bold text-slate-700">
                     <div className="flex items-center gap-1 mb-1">
                       <span className="text-yellow-400">★</span>
-                      <span className="text-xs md:text-sm">4.8 on Google Play</span>
+                      <span className="text-xs md:text-sm">Be First</span>
                     </div>
-                    <div className="text-xs text-slate-500">8k reviews</div>
+                    <div className="text-xs text-slate-500">Get early access</div>
                   </div>
                 </div>
               </div>
@@ -156,7 +160,7 @@ export default function App() {
               <MapPin size={18} md:size={24} className="text-yellow-500 flex-shrink-0" />
               <input type="text" placeholder="To..." className="bg-transparent outline-none w-full text-xs md:text-base text-slate-800 font-bold placeholder-slate-400" />
             </div>
-            <button className="w-full md:w-auto bg-gradient-to-r from-blue-400 to-cyan-400 text-white rounded-full py-2 md:py-4 px-4 md:px-12 font-bold text-xs md:text-base hover:scale-105 transition-transform shadow-lg shadow-blue-300/30">Search</button>
+            <button onClick={() => setShowWaitlist(true)} className="w-full md:w-auto bg-gradient-to-r from-blue-400 to-cyan-400 text-white rounded-full py-2 md:py-4 px-4 md:px-12 font-bold text-xs md:text-base hover:scale-105 transition-transform shadow-lg shadow-blue-300/30">Search</button>
           </div>
         </div>
       </div>
@@ -169,9 +173,9 @@ export default function App() {
             <div className="w-10 md:w-12 h-10 md:h-12 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-3 md:mb-4">
               <span className="text-xl md:text-2xl">👥</span>
             </div>
-            <h3 className="font-black text-slate-900 mb-2 text-sm md:text-lg">Join 2M people in India</h3>
-            <p className="text-xs md:text-sm text-slate-600 mb-3 md:mb-4 leading-relaxed">Join over 2 million people who carpool on hundreds of routes all over India.</p>
-            <a href="#" className="text-blue-600 font-bold text-xs md:text-sm hover:underline">Sign up for free</a>
+            <h3 className="font-black text-slate-900 mb-2 text-sm md:text-lg">Join Our Community</h3>
+            <p className="text-xs md:text-sm text-slate-600 mb-3 md:mb-4 leading-relaxed">Be part of the carpooling revolution. Join the waitlist and get early access.</p>
+            <button onClick={() => setShowWaitlist(true)} className="text-blue-600 font-bold text-xs md:text-sm hover:underline">Join now</button>
           </div>
 
           {/* FEATURE 2 */}
@@ -407,20 +411,16 @@ export default function App() {
 
       {/* TESTIMONIALS */}
       <div className="w-full max-w-6xl mb-6 md:mb-12 px-3 md:px-4 bento-box delay-5 text-center">
-        <h2 className="text-xl md:text-3xl font-black mb-4 md:mb-10 text-slate-900 tracking-tight">Community <span className="text-red-400">Voices</span></h2>
+        <h2 className="text-xl md:text-3xl font-black mb-4 md:mb-10 text-slate-900 tracking-tight">Join Our <span className="text-red-400">Waitlist</span></h2>
         <div className="grid md:grid-cols-3 gap-3 md:gap-6 text-left">
           {[
-            { n: "Priya Sharma", i: "P", c: "#3b82f6", r: "Student", t: "Saves me ₹2,400 monthly on my weekend trips home. Verified drivers always!" },
-            { n: "Rahul T.", i: "R", c: "#a78bfa", r: "Driver", t: "Verified profiles make carpooling feel like driving with colleagues. Best for intercity trips." },
-            { n: "Aisha Patel", i: "A", c: "#86efac", r: "Professional", t: "The Ladies-Only option is a life-saver for late night office commutes. I feel totally safe." }
+            { n: "Early Access", i: "E", c: "#3b82f6", r: "Founder", t: "Be among the first to experience WayloShare when we launch." },
+            { n: "Exclusive Offers", i: "X", c: "#a78bfa", r: "Waitlist", t: "Get special founder benefits and exclusive launch day offers." },
+            { n: "Priority Support", i: "P", c: "#86efac", r: "Member", t: "Enjoy priority customer support as a valued early member." }
           ].map((u, i) => (
             <div key={i} className="bg-white p-4 md:p-8 rounded-lg md:rounded-[2.5rem] border border-blue-200 shadow-sm hover:shadow-md transition-all">
               <div className="flex text-yellow-400 mb-2 md:mb-4">
-                <Star weight="fill" size={12} md:size={16}/>
-                <Star weight="fill" size={12} md:size={16}/>
-                <Star weight="fill" size={12} md:size={16}/>
-                <Star weight="fill" size={12} md:size={16}/>
-                <Star weight="fill" size={12} md:size={16}/>
+                <span className="text-2xl">⭐</span>
               </div>
               <p className="text-slate-700 font-medium italic text-xs md:text-sm mb-3 md:mb-6 leading-relaxed">"{u.t}"</p>
               <div className="flex items-center gap-2 md:gap-3">

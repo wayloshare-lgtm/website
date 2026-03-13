@@ -23,12 +23,12 @@ export default function Contact() {
       <Navbar />
 
       {/* HERO */}
-      <div className="w-full max-w-6xl mb-12 px-4">
-        <div className="bg-gradient-to-r from-blue-300 to-cyan-300 rounded-[3rem] p-12 md:p-16 text-white text-center shadow-2xl">
+      <div className="w-full mb-12">
+        <div className="bg-transparent rounded-none p-12 md:p-16 text-slate-900 text-center">
           <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight tracking-tighter">
-            Get in <span className="text-yellow-200">Touch</span>
+            Get in <span className="text-blue-600">Touch</span>
           </h1>
-          <p className="text-lg text-white/95 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-700 max-w-2xl mx-auto">
             Have questions? We'd love to hear from you. Reach out anytime!
           </p>
         </div>

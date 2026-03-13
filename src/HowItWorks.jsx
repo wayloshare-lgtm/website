@@ -119,7 +119,7 @@ export default function HowItWorks() {
               Pay, receive money online and review your driver or passengers after each trip.
             </p>
             <a href="#" className="inline-block text-blue-600 font-bold text-sm md:text-base hover:text-blue-700 hover:underline transition-colors">
-              Download our app →
+              Join the waitlist →
             </a>
           </div>
         </div>

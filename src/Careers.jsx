@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Car, Users, Zap, Heart, Globe, TrendingUp, Download, ChevronRight, MapPin, Briefcase } from 'lucide-react';
+import { Car, Users, Zap, Heart, Globe, TrendingUp, ChevronRight, MapPin, Briefcase } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -276,11 +276,11 @@ export default function Careers() {
         <div className="bg-gradient-to-r from-purple-300 to-pink-300 rounded-[3rem] p-12 md:p-16 text-white text-center shadow-2xl">
           <h2 className="text-4xl font-black mb-6">Ready to Make an Impact?</h2>
           <p className="text-lg text-white/95 mb-8 max-w-2xl mx-auto">
-            Send your resume to careers@wayloshare.com or apply directly through our careers portal
+            Join the WayloShare waitlist and be part of our team when we launch
           </p>
-          <button className="bg-white text-purple-600 px-10 py-4 rounded-full font-black flex items-center gap-3 hover:scale-105 transition-transform shadow-xl mx-auto">
-            <Download size={20} /> Apply Now
-          </button>
+          <Link to="/" className="inline-block bg-white text-purple-600 px-10 py-4 rounded-full font-black hover:scale-105 transition-transform shadow-xl">
+            Join the Waitlist
+          </Link>
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Download, ArrowLeft } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -153,11 +153,11 @@ export default function HowItWorksRider() {
         <div className="bg-gradient-to-r from-blue-300 to-cyan-300 rounded-xl md:rounded-[3rem] p-6 md:p-16 text-white text-center shadow-2xl">
           <h2 className="text-2xl md:text-4xl font-black mb-4 md:mb-6">Ready to Book Your First Ride?</h2>
           <p className="text-sm md:text-lg text-white/95 mb-6 md:mb-8 max-w-2xl mx-auto">
-            Join thousands of riders already saving money with WayloShare
+            Join the WayloShare waitlist and be among the first to save money with our carpooling platform
           </p>
-          <button className="bg-white text-blue-600 px-6 md:px-10 py-2 md:py-4 rounded-full font-black flex items-center gap-2 md:gap-3 hover:scale-105 transition-transform shadow-xl mx-auto text-sm md:text-base">
-            <Download size={18} md:size={20} /> Download App Now
-          </button>
+          <Link to="/" className="inline-block bg-white text-blue-600 px-6 md:px-10 py-2 md:py-4 rounded-full font-black hover:scale-105 transition-transform shadow-xl text-sm md:text-base">
+            Join the Waitlist
+          </Link>
         </div>
       </div>
 

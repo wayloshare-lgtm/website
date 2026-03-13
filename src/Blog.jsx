@@ -176,7 +176,7 @@ export default function Blog() {
         <div className="bg-gradient-to-r from-purple-300 to-pink-300 rounded-xl md:rounded-[3rem] p-6 md:p-16 text-white text-center shadow-2xl">
           <h2 className="text-xl md:text-4xl font-black mb-2 md:mb-4">Stay Updated</h2>
           <p className="text-xs md:text-lg text-white/95 mb-4 md:mb-8 max-w-2xl mx-auto leading-relaxed">
-            Get the latest carpooling tips and community stories delivered to your inbox
+            Get the latest updates about WayloShare launch and exclusive early-bird offers
           </p>
           <div className="max-w-md mx-auto flex flex-col md:flex-row gap-2 md:gap-3">
             <input
@@ -185,7 +185,7 @@ export default function Blog() {
               className="flex-1 bg-white/20 border border-white/40 rounded-full px-3 md:px-6 py-2 md:py-3 text-xs md:text-base text-white placeholder-white/70 outline-none focus:border-white/70 transition-all"
             />
             <button className="bg-white text-purple-600 px-4 md:px-8 py-2 md:py-3 rounded-full font-black text-xs md:text-base hover:scale-105 transition-transform whitespace-nowrap">
-              Subscribe
+              Notify Me
             </button>
           </div>
         </div>

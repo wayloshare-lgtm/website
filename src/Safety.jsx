@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Car, ShieldAlert, Heart, Bell, CheckCircle2, Users, Lock, Phone, MapPin, Download } from 'lucide-react';
+import { Car, ShieldAlert, Heart, Bell, CheckCircle2, Users, Lock, Phone, MapPin } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -100,10 +100,10 @@ export default function Safety() {
           <h2 className="text-4xl font-black text-slate-900 mb-10 text-center">Why Trust Wayloshare?</h2>
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { number: "5M+", label: "Verified Members" },
-              { number: "98%", label: "Safety Rating" },
-              { number: "0", label: "Incidents" },
-              { number: "24/7", label: "Support Available" }
+              { number: "Coming Soon", label: "Verified Members" },
+              { number: "Industry Leading", label: "Safety Standards" },
+              { number: "24/7", label: "Support Available" },
+              { number: "100%", label: "Commitment to Safety" }
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="text-4xl font-black text-blue-600 mb-2">{stat.number}</div>
@@ -139,11 +139,11 @@ export default function Safety() {
         <div className="bg-gradient-to-r from-purple-300 to-pink-300 rounded-[3rem] p-12 md:p-16 text-white text-center shadow-2xl">
           <h2 className="text-4xl font-black mb-6">Ready to Ride Safe?</h2>
           <p className="text-lg text-white/95 mb-8 max-w-2xl mx-auto">
-            Download the Wayloshare app and join millions of safe, verified riders
+            Join the WayloShare waitlist and be among the first to experience safe, verified carpooling
           </p>
-          <button className="bg-white text-purple-600 px-10 py-4 rounded-full font-black flex items-center gap-3 hover:scale-105 transition-transform shadow-xl mx-auto">
-            <Download size={20} /> Get App Now
-          </button>
+          <Link to="/" className="inline-block bg-white text-purple-600 px-10 py-4 rounded-full font-black flex items-center gap-3 hover:scale-105 transition-transform shadow-xl">
+            <span>Join the Waitlist</span>
+          </Link>
         </div>
       </div>
 
