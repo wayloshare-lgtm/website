@@ -104,7 +104,7 @@ export default function WaitlistModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-sm pt-20 md:pt-24">
+    <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-sm overflow-hidden">
       <style>{`
         @keyframes shimmer {
           0% { background-position: -1000px 0; }
@@ -141,11 +141,21 @@ export default function WaitlistModal({ isOpen, onClose }) {
         .float-animation {
           animation: float-up 0.6s ease-out;
         }
+        .modal-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+          max-height: 100vh;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+        }
       `}</style>
-      <div className="flex items-center justify-center w-full h-full max-h-[calc(100vh-5rem)] md:max-h-[calc(100vh-6rem)]">
+      <div className="modal-container">
         {/* INITIAL POPUP */}
         {step === 'initial' && (
-          <div className="premium-card rounded-[2.5rem] shadow-2xl w-full max-w-sm max-h-[90vh] overflow-hidden animate-in fade-in zoom-in duration-500 flex flex-col border-2 border-blue-100">
+          <div className="premium-card rounded-[2.5rem] shadow-2xl w-full max-w-sm max-h-[85vh] overflow-hidden animate-in fade-in zoom-in duration-500 flex flex-col border-2 border-blue-100 my-auto">
             <div className="flex-1 flex flex-col overflow-y-auto relative">
               {/* Close Button - More Prominent */}
               <button
@@ -195,7 +205,7 @@ export default function WaitlistModal({ isOpen, onClose }) {
 
         {/* FORM POPUP */}
         {step === 'form' && (
-          <div className="premium-card rounded-[2.5rem] shadow-2xl w-full max-w-sm max-h-[90vh] overflow-hidden animate-in fade-in zoom-in duration-500 flex flex-col border-2 border-blue-100">
+          <div className="premium-card rounded-[2.5rem] shadow-2xl w-full max-w-sm max-h-[85vh] overflow-hidden animate-in fade-in zoom-in duration-500 flex flex-col border-2 border-blue-100 my-auto">
             {/* Header - Premium gradient */}
             <div className="bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-500 p-6 md:p-8 text-white relative flex-shrink-0 shadow-lg">
               <button
@@ -303,7 +313,7 @@ export default function WaitlistModal({ isOpen, onClose }) {
 
         {/* SUCCESS POPUP */}
         {step === 'success' && (
-          <div className="premium-card rounded-[2.5rem] shadow-2xl w-full max-w-sm max-h-[90vh] overflow-hidden animate-in fade-in zoom-in duration-500 border-2 border-blue-100">
+          <div className="premium-card rounded-[2.5rem] shadow-2xl w-full max-w-sm max-h-[85vh] overflow-hidden animate-in fade-in zoom-in duration-500 border-2 border-blue-100 my-auto">
             <div className="p-8 md:p-10 text-center">
               {/* Success Icon */}
               <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce shadow-lg">
