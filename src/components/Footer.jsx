@@ -133,11 +133,8 @@ export default function Footer() {
 
           {/* PROUDLY MADE IN INDIA */}
           <div className="flex flex-col md:flex-row gap-4 md:gap-12 items-start md:items-center">
-            <div className="w-28 md:w-32 h-20 md:h-24 bg-gradient-to-br from-orange-100 to-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-              <div className="text-center">
-                <div className="text-xl md:text-2xl mb-1">🇮🇳</div>
-                <p className="text-xs font-bold text-slate-700">Made in India</p>
-              </div>
+            <div className="w-28 md:w-32 h-20 md:h-24 flex-shrink-0">
+              <img src="/footer.jpeg" alt="Made in India" className="w-full h-full object-contain" />
             </div>
             <div className="flex-1">
               <h4 className="font-bold text-slate-900 mb-1 md:mb-2 text-sm md:text-base">Proudly Made in India</h4>
