@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { X, Check } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
@@ -55,7 +55,7 @@ export default function WaitlistModal({ isOpen, onClose }) {
       
       // Prepare email data
       const templateParams = {
-        to_email: formData.email,
+        email: formData.email,
         user_name: formData.name,
         user_email: formData.email,
         user_phone: formData.number,
@@ -63,9 +63,9 @@ export default function WaitlistModal({ isOpen, onClose }) {
       };
 
       // Send email using EmailJS
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY)
         .then((response) => {
-          console.log('Email sent successfully:', response);
+          console.log('✅ Email sent successfully:', response);
           setStep('success');
           setTimeout(() => {
             setStep('initial');
@@ -74,14 +74,14 @@ export default function WaitlistModal({ isOpen, onClose }) {
           }, 3000);
         })
         .catch((error) => {
-          console.error('Email send failed:', error);
-          // Still show success even if email fails (data is saved)
-          setStep('success');
-          setTimeout(() => {
-            setStep('initial');
-            setFormData({ name: '', email: '', number: '', preference: 'both' });
-            onClose();
-          }, 3000);
+          console.error('❌ Email send failed:', error);
+          console.error('Error details:', {
+            status: error.status,
+            text: error.text,
+            message: error.message
+          });
+          alert(`Email failed to send. Error: ${error.text || error.message}`);
+          setStep('initial');
         })
         .finally(() => {
           setIsLoading(false);
