@@ -139,11 +139,11 @@ export default function Careers() {
         <h2 className="text-4xl font-black text-slate-900 mb-10 text-center">Open Positions</h2>
         
         {/* Job Cards with Flip Animation */}
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <div className="grid md:grid-cols-2 gap-8 mb-8">
           {jobs.map((job) => (
             <div
               key={job.id}
-              className="cursor-pointer perspective"
+              className="cursor-pointer perspective h-full"
               onMouseEnter={() => setRotateCard(job.id)}
               onMouseLeave={() => setRotateCard(null)}
             >
