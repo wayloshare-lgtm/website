@@ -105,7 +105,7 @@ export default function App() {
       </div>
 
       {/* 2. NAVBAR */}
-      <Navbar />
+      <Navbar onSignIn={() => setShowWaitlist(true)} />
 
       {/* 3. HERO SECTION - CLEAN DESIGN */}
       <div className="w-full max-w-6xl mb-8 md:mb-12 px-3 md:px-4 bento-box delay-2">

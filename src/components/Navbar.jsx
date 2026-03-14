@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, LogIn, ChevronDown } from 'lucide-react';
 
-export default function Navbar() {
+export default function Navbar({ onSignIn }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -47,7 +47,7 @@ export default function Navbar() {
                 </Link>
               </div>
             </div>
-            <button className="flex items-center gap-1 lg:gap-2 hover:text-blue-600 transition-colors">
+            <button onClick={onSignIn} className="flex items-center gap-1 lg:gap-2 hover:text-blue-600 transition-colors">
               <span className="text-base">🔐</span>
               <span className="hidden lg:inline">Sign in</span>
             </button>
@@ -102,7 +102,7 @@ export default function Navbar() {
             
             <Link to="/blogs" onClick={() => setMobileMenuOpen(false)} className="font-bold text-slate-700 hover:text-blue-600 py-2 text-sm">Blogs</Link>
             <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="font-bold text-slate-700 hover:text-blue-600 py-2 text-sm">Contact</Link>
-            <button className="font-bold text-slate-700 hover:text-blue-600 py-2 flex items-center gap-2 text-sm">
+            <button onClick={() => { onSignIn(); setMobileMenuOpen(false); }} className="font-bold text-slate-700 hover:text-blue-600 py-2 flex items-center gap-2 text-sm">
               🔐 Sign in
             </button>
           </div>
