@@ -139,16 +139,16 @@ export default function Careers() {
         <h2 className="text-4xl font-black text-slate-900 mb-10 text-center">Open Positions</h2>
         
         {/* Job Cards with Flip Animation */}
-        <div className="grid md:grid-cols-2 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 gap-12 mb-8">
           {jobs.map((job) => (
             <div
               key={job.id}
-              className="cursor-pointer perspective h-full"
+              className="cursor-pointer"
               onMouseEnter={() => setRotateCard(job.id)}
               onMouseLeave={() => setRotateCard(null)}
             >
               <div
-                className="relative w-full transition-transform duration-500 min-h-96"
+                className="relative w-full min-h-96 transition-transform duration-500"
                 style={{
                   transformStyle: 'preserve-3d',
                   transform: rotateCard === job.id ? 'rotateY(180deg)' : 'rotateY(0deg)'
@@ -156,7 +156,7 @@ export default function Careers() {
               >
                 {/* Front of card */}
                 <div
-                  className="absolute w-full bg-white rounded-[2.5rem] border border-blue-200 p-8 shadow-sm"
+                  className="w-full min-h-96 bg-white rounded-[2.5rem] border border-blue-200 p-8 shadow-sm flex flex-col"
                   style={{ backfaceVisibility: 'hidden' }}
                 >
                   <div className="flex items-start justify-between mb-4">
@@ -182,17 +182,17 @@ export default function Careers() {
                     </div>
                   </div>
                   
-                  <p className="text-slate-600 text-sm leading-relaxed line-clamp-3 mb-12">{job.description}</p>
+                  <p className="text-slate-600 text-sm leading-relaxed line-clamp-3 flex-grow">{job.description}</p>
                   
-                  <div className="text-center text-xs text-blue-500 font-bold">
+                  <div className="text-center text-xs text-blue-500 font-bold mt-8">
                     Hover to see more →
                   </div>
                 </div>
 
                 {/* Back of card */}
                 <div
-                  className="absolute w-full bg-gradient-to-br from-blue-400 to-cyan-400 rounded-[2.5rem] p-8 shadow-sm text-white overflow-y-auto"
-                  style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)', maxHeight: '24rem' }}
+                  className="absolute top-0 left-0 w-full min-h-96 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-[2.5rem] p-8 shadow-sm text-white overflow-y-auto flex flex-col"
+                  style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
                 >
                   <h4 className="font-bold text-lg mb-3">Requirements:</h4>
                   <ul className="space-y-2 mb-6">
