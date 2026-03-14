@@ -84,15 +84,13 @@ export default function Careers() {
 
       {/* HERO WITH TWIST */}
       <div className="w-full max-w-6xl mb-12 px-4">
-        <div className="relative bg-gradient-to-r from-purple-300 via-pink-300 to-blue-300 rounded-[3rem] p-12 md:p-16 text-white text-center shadow-2xl overflow-hidden">
-          {/* Animated background elements */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -z-10 animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="relative bg-transparent rounded-[3rem] p-12 md:p-16 text-slate-900 text-center shadow-none overflow-hidden">
+          {/* Animated background elements - removed for transparent background */}
           
           <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight tracking-tighter relative z-10">
-            Join Our <span className="text-yellow-200">Twisty</span> Team
+            Join Our <span className="text-blue-600">Twisty</span> Team
           </h1>
-          <p className="text-lg text-white/95 max-w-2xl mx-auto relative z-10 mb-8">
+          <p className="text-lg text-slate-700 max-w-2xl mx-auto relative z-10 mb-8">
             We're building the future of carpooling in India. Help us revolutionize how people commute!
           </p>
           
@@ -105,10 +103,10 @@ export default function Careers() {
             ].map((stat, i) => (
               <div 
                 key={i}
-                className="bg-white/20 p-6 rounded-2xl border border-white/30 backdrop-blur-md hover:scale-110 transition-transform cursor-pointer"
+                className="bg-white p-6 rounded-2xl border border-blue-200 shadow-sm hover:scale-110 transition-transform cursor-pointer"
               >
-                <div className="text-3xl font-black text-yellow-200">{stat.number}</div>
-                <p className="text-sm font-bold text-white/90 mt-2">{stat.label}</p>
+                <div className="text-3xl font-black text-blue-600">{stat.number}</div>
+                <p className="text-sm font-bold text-slate-700 mt-2">{stat.label}</p>
               </div>
             ))}
           </div>
