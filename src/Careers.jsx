@@ -143,12 +143,12 @@ export default function Careers() {
           {jobs.map((job) => (
             <div
               key={job.id}
-              className="h-80 cursor-pointer perspective"
+              className="cursor-pointer perspective"
               onMouseEnter={() => setRotateCard(job.id)}
               onMouseLeave={() => setRotateCard(null)}
             >
               <div
-                className="relative w-full h-full transition-transform duration-500"
+                className="relative w-full transition-transform duration-500 min-h-96"
                 style={{
                   transformStyle: 'preserve-3d',
                   transform: rotateCard === job.id ? 'rotateY(180deg)' : 'rotateY(0deg)'
@@ -156,7 +156,7 @@ export default function Careers() {
               >
                 {/* Front of card */}
                 <div
-                  className="absolute w-full h-full bg-white rounded-[2.5rem] border border-blue-200 p-8 shadow-sm"
+                  className="absolute w-full bg-white rounded-[2.5rem] border border-blue-200 p-8 shadow-sm"
                   style={{ backfaceVisibility: 'hidden' }}
                 >
                   <div className="flex items-start justify-between mb-4">
@@ -164,7 +164,7 @@ export default function Careers() {
                       <h3 className="text-2xl font-black text-slate-900 mb-2">{job.title}</h3>
                       <p className="text-blue-600 font-bold text-sm">{job.department}</p>
                     </div>
-                    <ChevronRight size={24} className="text-blue-400" />
+                    <ChevronRight size={24} className="text-blue-400 flex-shrink-0" />
                   </div>
                   
                   <div className="space-y-3 mb-6">
@@ -182,23 +182,23 @@ export default function Careers() {
                     </div>
                   </div>
                   
-                  <p className="text-slate-600 text-sm leading-relaxed line-clamp-3">{job.description}</p>
+                  <p className="text-slate-600 text-sm leading-relaxed line-clamp-3 mb-12">{job.description}</p>
                   
-                  <div className="absolute bottom-6 left-8 right-8 text-center text-xs text-blue-500 font-bold">
+                  <div className="text-center text-xs text-blue-500 font-bold">
                     Hover to see more →
                   </div>
                 </div>
 
                 {/* Back of card */}
                 <div
-                  className="absolute w-full h-full bg-gradient-to-br from-blue-400 to-cyan-400 rounded-[2.5rem] p-8 shadow-sm text-white"
-                  style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+                  className="absolute w-full bg-gradient-to-br from-blue-400 to-cyan-400 rounded-[2.5rem] p-8 shadow-sm text-white overflow-y-auto"
+                  style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)', maxHeight: '24rem' }}
                 >
                   <h4 className="font-bold text-lg mb-3">Requirements:</h4>
                   <ul className="space-y-2 mb-6">
                     {job.requirements.map((req, i) => (
                       <li key={i} className="text-sm flex items-start gap-2">
-                        <span className="text-yellow-200 font-bold">✓</span>
+                        <span className="text-yellow-200 font-bold flex-shrink-0">✓</span>
                         <span>{req}</span>
                       </li>
                     ))}
@@ -208,7 +208,7 @@ export default function Careers() {
                   <ul className="space-y-1">
                     {job.perks.map((perk, i) => (
                       <li key={i} className="text-sm flex items-start gap-2">
-                        <span className="text-yellow-200">•</span>
+                        <span className="text-yellow-200 flex-shrink-0">•</span>
                         <span>{perk}</span>
                       </li>
                     ))}
