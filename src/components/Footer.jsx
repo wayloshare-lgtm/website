@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Linkedin, Twitter } from 'lucide-react';
+import { Instagram, Facebook, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -18,8 +18,10 @@ export default function Footer() {
               <a href="https://www.instagram.com/wayloshare?igsh=MTJ3cThsMXRod3FnbA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-blue-600 transition-colors">
                 <Instagram size={18} />
               </a>
-              <a href="https://x.com/WayloShareApp" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-blue-600 transition-colors">
-                <Twitter size={18} />
+              <a href="https://x.com/WayloShareApp" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-900 transition-colors">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.207-6.807-5.974 6.807H2.882l7.732-8.835L1.227 2.25h6.836l4.702 6.217 5.447-6.217zM17.15 18.75h1.828L6.122 3.97H4.231l12.919 14.78z"/>
+                </svg>
               </a>
               <a href="#" className="text-slate-600 hover:text-blue-600 transition-colors">
                 <Facebook size={18} />
