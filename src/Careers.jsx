@@ -1,81 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Car, Users, Zap, Heart, Globe, TrendingUp, ChevronRight, MapPin, Briefcase } from 'lucide-react';
+import { Heart, TrendingDown, Users } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 export default function Careers() {
-  const [selectedJob, setSelectedJob] = useState(null);
-  const [rotateCard, setRotateCard] = useState(null);
-
-  const jobs = [
-    {
-      id: 1,
-      title: "Community Manager",
-      department: "Community & Growth",
-      location: "Bangalore, India",
-      type: "Full-time",
-      salary: "₹6-10 LPA",
-      description: "Build and nurture our community of riders and drivers. Organize events, manage social media, and create engaging content.",
-      requirements: ["2+ years community management", "Social media expertise", "Event planning experience", "Passion for carpooling"],
-      perks: ["Flexible hours", "Remote work", "Community events", "Learning budget"]
-    },
-    {
-      id: 2,
-      title: "Safety & Compliance Officer",
-      department: "Safety & Trust",
-      location: "Delhi, India",
-      type: "Full-time",
-      salary: "₹8-12 LPA",
-      description: "Ensure platform safety and regulatory compliance. Develop safety protocols and manage user verification processes.",
-      requirements: ["3+ years in safety/compliance", "Knowledge of transportation regulations", "Strong analytical skills", "Attention to detail"],
-      perks: ["Health insurance", "Professional development", "Flexible schedule", "Remote options"]
-    },
-    {
-      id: 3,
-      title: "Product Designer",
-      department: "Product & Design",
-      location: "Mumbai, India",
-      type: "Full-time",
-      salary: "₹7-11 LPA",
-      description: "Design intuitive user experiences for our mobile app. Create wireframes, prototypes, and conduct user research.",
-      requirements: ["3+ years UI/UX design", "Figma proficiency", "Mobile app design experience", "User research skills"],
-      perks: ["Creative freedom", "Latest design tools", "Collaborative team", "Design conferences"]
-    },
-    {
-      id: 4,
-      title: "Backend Developer",
-      department: "Engineering",
-      location: "Bangalore, India",
-      type: "Full-time",
-      salary: "₹10-16 LPA",
-      description: "Build scalable backend systems for our platform. Work with APIs, databases, and cloud infrastructure.",
-      requirements: ["3+ years backend development", "Node.js/Python expertise", "Database design", "Cloud platforms (AWS/GCP)"],
-      perks: ["Competitive salary", "Stock options", "Tech stack freedom", "Learning opportunities"]
-    },
-    {
-      id: 5,
-      title: "Customer Support Specialist",
-      department: "Customer Success",
-      location: "Hyderabad, India",
-      type: "Full-time",
-      salary: "₹3-5 LPA",
-      description: "Provide exceptional support to our users. Handle inquiries, resolve issues, and gather user feedback.",
-      requirements: ["1+ years customer support", "Excellent communication", "Problem-solving skills", "Patience and empathy"],
-      perks: ["Training provided", "Performance bonus", "Flexible shifts", "Career growth"]
-    },
-    {
-      id: 6,
-      title: "Marketing Manager",
-      department: "Marketing & Growth",
-      location: "Pune, India",
-      type: "Full-time",
-      salary: "₹6-9 LPA",
-      description: "Drive user acquisition and brand awareness. Plan campaigns, manage partnerships, and analyze metrics.",
-      requirements: ["3+ years marketing experience", "Digital marketing expertise", "Analytics knowledge", "Campaign management"],
-      perks: ["Creative projects", "Marketing budget", "Team collaboration", "Growth opportunities"]
-    }
-  ];
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    position: '',
+    experience: '',
+    cv: null,
+    coverLetter: ''
+  });
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-yellow-50 to-purple-50 font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-12 md:pb-20">
@@ -138,93 +76,126 @@ export default function Careers() {
       <div className="w-full max-w-6xl mb-12 px-4">
         <h2 className="text-4xl font-black text-slate-900 mb-10 text-center">Open Positions</h2>
         
-        {/* Job Cards with Flip Animation */}
-        <div className="grid md:grid-cols-2 gap-12 mb-8">
-          {jobs.map((job) => (
-            <div
-              key={job.id}
-              className="cursor-pointer"
-              onMouseEnter={() => setRotateCard(job.id)}
-              onMouseLeave={() => setRotateCard(null)}
-            >
-              <div
-                className="relative w-full min-h-96 transition-transform duration-500"
-                style={{
-                  transformStyle: 'preserve-3d',
-                  transform: rotateCard === job.id ? 'rotateY(180deg)' : 'rotateY(0deg)'
-                }}
-              >
-                {/* Front of card */}
-                <div
-                  className="w-full min-h-96 bg-white rounded-[2.5rem] border border-blue-200 p-8 shadow-sm flex flex-col"
-                  style={{ backfaceVisibility: 'hidden' }}
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="text-2xl font-black text-slate-900 mb-2">{job.title}</h3>
-                      <p className="text-blue-600 font-bold text-sm">{job.department}</p>
-                    </div>
-                    <ChevronRight size={24} className="text-blue-400 flex-shrink-0" />
-                  </div>
-                  
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center gap-2 text-slate-600">
-                      <MapPin size={16} />
-                      <span className="text-sm">{job.location}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-slate-600">
-                      <Briefcase size={16} />
-                      <span className="text-sm">{job.type}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-slate-600">
-                      <span className="text-lg font-bold text-green-600">₹</span>
-                      <span className="text-sm font-bold">{job.salary}</span>
-                    </div>
-                  </div>
-                  
-                  <p className="text-slate-600 text-sm leading-relaxed line-clamp-3 flex-grow">{job.description}</p>
-                  
-                  <div className="text-center text-xs text-blue-500 font-bold mt-8">
-                    Hover to see more →
-                  </div>
-                </div>
+      {/* CV SUBMISSION FORM */}
+      <div className="w-full max-w-6xl mb-12 px-4">
+        <h2 className="text-4xl font-black text-slate-900 mb-10 text-center">Join Our Team</h2>
+        
+        <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-[3rem] p-8 md:p-12 border-2 border-blue-200 shadow-lg">
+          <form className="space-y-6 md:space-y-8">
+            {/* Name Field */}
+            <div>
+              <label className="block text-sm md:text-base font-bold text-slate-800 mb-2">Full Name *</label>
+              <input
+                type="text"
+                placeholder="Enter your full name"
+                className="w-full px-4 md:px-6 py-3 md:py-4 rounded-xl border-2 border-blue-200 focus:border-blue-500 focus:outline-none transition-all text-sm md:text-base bg-white"
+                required
+              />
+            </div>
 
-                {/* Back of card */}
-                <div
-                  className="absolute top-0 left-0 w-full min-h-96 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-[2.5rem] p-8 shadow-sm text-white overflow-y-auto flex flex-col"
-                  style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
-                >
-                  <h4 className="font-bold text-lg mb-3">Requirements:</h4>
-                  <ul className="space-y-2 mb-6">
-                    {job.requirements.map((req, i) => (
-                      <li key={i} className="text-sm flex items-start gap-2">
-                        <span className="text-yellow-200 font-bold flex-shrink-0">✓</span>
-                        <span>{req}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <h4 className="font-bold text-lg mb-3">Perks:</h4>
-                  <ul className="space-y-1">
-                    {job.perks.map((perk, i) => (
-                      <li key={i} className="text-sm flex items-start gap-2">
-                        <span className="text-yellow-200 flex-shrink-0">•</span>
-                        <span>{perk}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            {/* Email Field */}
+            <div>
+              <label className="block text-sm md:text-base font-bold text-slate-800 mb-2">Email Address *</label>
+              <input
+                type="email"
+                placeholder="your@email.com"
+                className="w-full px-4 md:px-6 py-3 md:py-4 rounded-xl border-2 border-blue-200 focus:border-blue-500 focus:outline-none transition-all text-sm md:text-base bg-white"
+                required
+              />
+            </div>
+
+            {/* Phone Field */}
+            <div>
+              <label className="block text-sm md:text-base font-bold text-slate-800 mb-2">Phone Number *</label>
+              <input
+                type="tel"
+                placeholder="+91 XXXXX XXXXX"
+                className="w-full px-4 md:px-6 py-3 md:py-4 rounded-xl border-2 border-blue-200 focus:border-blue-500 focus:outline-none transition-all text-sm md:text-base bg-white"
+                required
+              />
+            </div>
+
+            {/* Position Field */}
+            <div>
+              <label className="block text-sm md:text-base font-bold text-slate-800 mb-2">Position Interested In *</label>
+              <select
+                className="w-full px-4 md:px-6 py-3 md:py-4 rounded-xl border-2 border-blue-200 focus:border-blue-500 focus:outline-none transition-all text-sm md:text-base bg-white"
+                required
+              >
+                <option value="">Select a position</option>
+                <option value="community-manager">Community Manager</option>
+                <option value="safety-officer">Safety & Compliance Officer</option>
+                <option value="product-designer">Product Designer</option>
+                <option value="backend-developer">Backend Developer</option>
+                <option value="support-specialist">Customer Support Specialist</option>
+                <option value="marketing-manager">Marketing Manager</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            {/* Experience Field */}
+            <div>
+              <label className="block text-sm md:text-base font-bold text-slate-800 mb-2">Years of Experience *</label>
+              <input
+                type="number"
+                placeholder="e.g., 3"
+                min="0"
+                className="w-full px-4 md:px-6 py-3 md:py-4 rounded-xl border-2 border-blue-200 focus:border-blue-500 focus:outline-none transition-all text-sm md:text-base bg-white"
+                required
+              />
+            </div>
+
+            {/* CV Upload Field */}
+            <div>
+              <label className="block text-sm md:text-base font-bold text-slate-800 mb-2">Upload Your CV *</label>
+              <div className="relative">
+                <input
+                  type="file"
+                  accept=".pdf,.doc,.docx"
+                  className="w-full px-4 md:px-6 py-3 md:py-4 rounded-xl border-2 border-dashed border-blue-300 focus:border-blue-500 focus:outline-none transition-all text-sm md:text-base bg-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-blue-500 file:text-white hover:file:bg-blue-600"
+                  required
+                />
+                <p className="text-xs md:text-sm text-slate-500 mt-2">Accepted formats: PDF, DOC, DOCX (Max 5MB)</p>
               </div>
             </div>
-          ))}
-        </div>
 
-        {/* Apply Button */}
-        <div className="text-center">
-          <button className="bg-gradient-to-r from-blue-400 to-cyan-400 text-white px-12 py-4 rounded-full font-black text-lg hover:scale-105 transition-transform shadow-lg">
-            View All Positions & Apply
-          </button>
+            {/* Cover Letter Field */}
+            <div>
+              <label className="block text-sm md:text-base font-bold text-slate-800 mb-2">Cover Letter (Optional)</label>
+              <textarea
+                placeholder="Tell us why you'd be a great fit for WayloShare..."
+                rows="5"
+                className="w-full px-4 md:px-6 py-3 md:py-4 rounded-xl border-2 border-blue-200 focus:border-blue-500 focus:outline-none transition-all text-sm md:text-base bg-white resize-none"
+              ></textarea>
+            </div>
+
+            {/* Checkbox */}
+            <div className="flex items-start gap-3">
+              <input
+                type="checkbox"
+                id="terms"
+                className="w-5 h-5 mt-1 rounded border-2 border-blue-200 focus:border-blue-500 cursor-pointer"
+                required
+              />
+              <label htmlFor="terms" className="text-xs md:text-sm text-slate-600">
+                I agree to the <a href="/privacy" className="text-blue-600 hover:underline">Privacy Policy</a> and <a href="/community-guidelines" className="text-blue-600 hover:underline">Terms of Service</a>
+              </label>
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-3 md:py-4 rounded-xl font-black text-sm md:text-base hover:shadow-lg hover:scale-105 transition-all shadow-lg"
+            >
+              Submit Application
+            </button>
+
+            <p className="text-xs md:text-sm text-slate-500 text-center">
+              We'll review your application and get back to you within 5-7 business days.
+            </p>
+          </form>
         </div>
+      </div>
       </div>
 
       {/* CULTURE SECTION */}
