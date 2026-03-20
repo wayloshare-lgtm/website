@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Linkedin } from 'lucide-react';
+import { Instagram, Facebook, Linkedin, Twitter } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -17,6 +17,9 @@ export default function Footer() {
             <div className="flex gap-4 mb-4 md:mb-6">
               <a href="https://www.instagram.com/wayloshare?igsh=MTJ3cThsMXRod3FnbA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-blue-600 transition-colors">
                 <Instagram size={18} />
+              </a>
+              <a href="https://x.com/WayloShareApp" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-blue-600 transition-colors">
+                <Twitter size={18} />
               </a>
               <a href="#" className="text-slate-600 hover:text-blue-600 transition-colors">
                 <Facebook size={18} />
