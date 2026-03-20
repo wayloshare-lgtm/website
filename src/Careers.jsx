@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, TrendingDown, Users } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+
+// Initialize EmailJS with new account credentials
+const EMAILJS_PUBLIC_KEY = 'vXB0s8_t1tr2gEgjD';
+const EMAILJS_SERVICE_ID = 'service_bbgbzov';
+const EMAILJS_TEMPLATE_ID = 'template_158g1r9';
+
+if (EMAILJS_PUBLIC_KEY) {
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+}
 
 export default function Careers() {
   const [formData, setFormData] = useState({
@@ -14,6 +24,87 @@ export default function Careers() {
     cv: null,
     coverLetter: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleFileChange = (e) => {
+    setFormData(prev => ({
+      ...prev,
+      cv: e.target.files[0]
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      // Convert file to base64 if present
+      let cvBase64 = '';
+      let cvFileName = '';
+      
+      if (formData.cv) {
+        cvFileName = formData.cv.name;
+        cvBase64 = await new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsDataURL(formData.cv);
+        });
+      }
+
+      // Prepare email data for EmailJS - Always send to wayloshare@gmail.com
+      const templateParams = {
+        applicant_name: formData.name,
+        applicant_email: formData.email,
+        applicant_phone: formData.phone,
+        position: formData.position,
+        experience: formData.experience,
+        cover_letter: formData.coverLetter || 'No cover letter provided',
+        cv_filename: cvFileName || 'No CV uploaded'
+      };
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      if (response.status === 200) {
+        setSubmitMessage('✅ Application submitted successfully! We\'ll review it and get back to you soon.');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          position: '',
+          experience: '',
+          cv: null,
+          coverLetter: ''
+        });
+        // Reset file input
+        const fileInput = document.getElementById('cv-input');
+        if (fileInput) fileInput.value = '';
+      } else {
+        setSubmitMessage('❌ Failed to submit. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setSubmitMessage('❌ An error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-yellow-50 to-purple-50 font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-12 md:pb-20">
@@ -81,12 +172,15 @@ export default function Careers() {
         <h2 className="text-4xl font-black text-slate-900 mb-10 text-center">Join Our Team</h2>
         
         <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-[3rem] p-8 md:p-12 border-2 border-blue-200 shadow-lg">
-          <form className="space-y-6 md:space-y-8">
+          <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
             {/* Name Field */}
             <div>
               <label className="block text-sm md:text-base font-bold text-slate-800 mb-2">Full Name *</label>
               <input
                 type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
                 placeholder="Enter your full name"
                 className="w-full px-4 md:px-6 py-3 md:py-4 rounded-xl border-2 border-blue-200 focus:border-blue-500 focus:outline-none transition-all text-sm md:text-base bg-white"
                 required
@@ -98,6 +192,9 @@ export default function Careers() {
               <label className="block text-sm md:text-base font-bold text-slate-800 mb-2">Email Address *</label>
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
                 placeholder="your@email.com"
                 className="w-full px-4 md:px-6 py-3 md:py-4 rounded-xl border-2 border-blue-200 focus:border-blue-500 focus:outline-none transition-all text-sm md:text-base bg-white"
                 required
@@ -109,6 +206,9 @@ export default function Careers() {
               <label className="block text-sm md:text-base font-bold text-slate-800 mb-2">Phone Number *</label>
               <input
                 type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
                 placeholder="+91 XXXXX XXXXX"
                 className="w-full px-4 md:px-6 py-3 md:py-4 rounded-xl border-2 border-blue-200 focus:border-blue-500 focus:outline-none transition-all text-sm md:text-base bg-white"
                 required
@@ -119,6 +219,9 @@ export default function Careers() {
             <div>
               <label className="block text-sm md:text-base font-bold text-slate-800 mb-2">Position Interested In *</label>
               <select
+                name="position"
+                value={formData.position}
+                onChange={handleInputChange}
                 className="w-full px-4 md:px-6 py-3 md:py-4 rounded-xl border-2 border-blue-200 focus:border-blue-500 focus:outline-none transition-all text-sm md:text-base bg-white"
                 required
               >
@@ -138,6 +241,9 @@ export default function Careers() {
               <label className="block text-sm md:text-base font-bold text-slate-800 mb-2">Years of Experience *</label>
               <input
                 type="number"
+                name="experience"
+                value={formData.experience}
+                onChange={handleInputChange}
                 placeholder="e.g., 3"
                 min="0"
                 className="w-full px-4 md:px-6 py-3 md:py-4 rounded-xl border-2 border-blue-200 focus:border-blue-500 focus:outline-none transition-all text-sm md:text-base bg-white"
@@ -150,7 +256,10 @@ export default function Careers() {
               <label className="block text-sm md:text-base font-bold text-slate-800 mb-2">Upload Your CV *</label>
               <div className="relative">
                 <input
+                  id="cv-input"
                   type="file"
+                  name="cv"
+                  onChange={handleFileChange}
                   accept=".pdf,.doc,.docx"
                   className="w-full px-4 md:px-6 py-3 md:py-4 rounded-xl border-2 border-dashed border-blue-300 focus:border-blue-500 focus:outline-none transition-all text-sm md:text-base bg-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-bold file:bg-blue-500 file:text-white hover:file:bg-blue-600"
                   required
@@ -163,6 +272,9 @@ export default function Careers() {
             <div>
               <label className="block text-sm md:text-base font-bold text-slate-800 mb-2">Cover Letter (Optional)</label>
               <textarea
+                name="coverLetter"
+                value={formData.coverLetter}
+                onChange={handleInputChange}
                 placeholder="Tell us why you'd be a great fit for WayloShare..."
                 rows="5"
                 className="w-full px-4 md:px-6 py-3 md:py-4 rounded-xl border-2 border-blue-200 focus:border-blue-500 focus:outline-none transition-all text-sm md:text-base bg-white resize-none"
@@ -185,10 +297,22 @@ export default function Careers() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-3 md:py-4 rounded-xl font-black text-sm md:text-base hover:shadow-lg hover:scale-105 transition-all shadow-lg"
+              disabled={isSubmitting}
+              className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-3 md:py-4 rounded-xl font-black text-sm md:text-base hover:shadow-lg hover:scale-105 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Submit Application
+              {isSubmitting ? 'Submitting...' : 'Submit Application'}
             </button>
+
+            {/* Success/Error Message */}
+            {submitMessage && (
+              <div className={`p-4 rounded-xl text-center font-bold text-sm md:text-base ${
+                submitMessage.includes('✅') 
+                  ? 'bg-green-100 text-green-700 border-2 border-green-300' 
+                  : 'bg-red-100 text-red-700 border-2 border-red-300'
+              }`}>
+                {submitMessage}
+              </div>
+            )}
 
             <p className="text-xs md:text-sm text-slate-500 text-center">
               We'll review your application and get back to you within 5-7 business days.
