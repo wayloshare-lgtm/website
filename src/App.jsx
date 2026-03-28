@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Car, MapPin, ArrowRight, Heart, TrendingDown, Users, CheckCircle2, Map as MapIcon, ShieldAlert, Smartphone, QrCode, MapPinned, ChevronDown, Zap, Clock, Navigation, Sparkles} from 'lucide-react';
+import { Car, MapPin, ArrowRight, Heart, TrendingDown, Users, CheckCircle2, Map as MapIcon, ShieldAlert, Smartphone, QrCode, MapPinned, ChevronDown, Zap, Clock, Navigation, Sparkles, Calendar} from 'lucide-react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WaitlistModal from './components/WaitlistModal';
@@ -107,60 +107,95 @@ export default function App() {
       {/* 2. NAVBAR */}
       <Navbar onSignIn={() => setShowWaitlist(true)} />
 
-      {/* 3. HERO SECTION - CLEAN DESIGN */}
-      <div className="w-full max-w-6xl mb-8 md:mb-12 px-3 md:px-4 bento-box delay-2">
-        <div className="bg-gradient-to-br from-blue-100 to-cyan-100 rounded-xl md:rounded-[2.5rem] p-4 md:p-12 border border-blue-200 overflow-hidden">
-          <div className="grid md:grid-cols-2 gap-4 md:gap-12 items-center mb-6 md:mb-12">
+      {/* 3. HERO SECTION - NEW DESIGN */}
+      <div className="w-full mb-8 md:mb-12 px-3 md:px-4 bento-box delay-2">
+        <div className="bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 rounded-xl md:rounded-[2.5rem] p-4 md:p-8 border border-emerald-200 overflow-hidden min-h-[500px] md:min-h-[600px] flex items-center">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-8 items-center w-full">
             {/* LEFT CONTENT */}
             <div className="flex flex-col justify-center">
-              <h1 className="text-3xl md:text-6xl font-black text-slate-900 leading-tight mb-3 md:mb-6 tracking-tighter">
-                Why Go Solo?
+              {/* ECO-FRIENDLY BADGE */}
+              <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 rounded-full px-3 py-1.5 mb-3 md:mb-4 w-fit text-xs md:text-sm">
+                <span className="text-base md:text-lg">🌱</span>
+                <span className="font-bold">Eco-friendly commuting for everyone</span>
+              </div>
+
+              {/* MAIN HEADING */}
+              <h1 className="text-3xl md:text-5xl font-black text-slate-900 leading-tight mb-3 md:mb-4 tracking-tighter">
+                Why Go<br/><span className="text-emerald-600">Solo?</span>
               </h1>
-              <p className="text-xs md:text-lg text-slate-700 mb-4 md:mb-8 leading-relaxed">
-                Join thousands of smart commuters saving money and making connections.
+
+              {/* DESCRIPTION */}
+              <p className="text-xs md:text-sm text-slate-700 mb-4 md:mb-6 leading-relaxed max-w-md">
+                Join a community of 50,000+ commuters turning empty seats into new connections and lower travel costs.
               </p>
-              
-              {/* APP RATINGS */}
-              <div className="flex flex-col sm:flex-row gap-2 md:gap-4">
-                <div className="bg-white/70 backdrop-blur-sm rounded-lg md:rounded-xl p-2 md:p-4 border border-blue-200 flex items-center gap-2">
-                  <div className="text-xs md:text-sm font-bold text-slate-700">
-                    <div className="flex items-center gap-1 mb-1">
-                      <span className="text-yellow-400">★</span>
-                      <span className="text-xs md:text-sm">Coming Soon</span>
-                    </div>
-                    <div className="text-xs text-slate-500">Join the waitlist</div>
-                  </div>
+
+              {/* BUTTONS */}
+              <div className="flex flex-col sm:flex-row gap-2 md:gap-3">
+                <button onClick={() => setShowWaitlist(true)} className="bg-white border-2 border-emerald-200 text-slate-900 px-4 md:px-6 py-2 md:py-3 rounded-lg font-bold hover:bg-emerald-50 transition-colors text-xs md:text-sm flex items-center justify-center gap-2 flex-shrink-0">
+                  <span className="text-base md:text-lg">⭐</span>
+                  <span>JOIN WAITLIST</span>
+                </button>
+                <Link to="/how-it-works" className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-bold transition-colors text-xs md:text-sm flex items-center justify-center gap-2 flex-shrink-0">
+                  <span className="text-base md:text-lg">🎯</span>
+                  <span>LEARN MORE</span>
+                </Link>
+              </div>
+
+              {/* SOCIAL PROOF */}
+              <div className="flex items-center gap-2 mt-4 md:mt-6">
+                <div className="flex -space-x-2">
+                  <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-pink-400 to-red-400 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">👩</div>
+                  <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">👨</div>
+                  <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-yellow-400 to-orange-400 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">👤</div>
                 </div>
-                <div className="bg-white/70 backdrop-blur-sm rounded-lg md:rounded-xl p-2 md:p-4 border border-blue-200 flex items-center gap-2">
-                  <div className="text-xs md:text-sm font-bold text-slate-700">
-                    <div className="flex items-center gap-1 mb-1">
-                      <span className="text-yellow-400">★</span>
-                      <span className="text-xs md:text-sm">Be First</span>
-                    </div>
-                    <div className="text-xs text-slate-500">Get early access</div>
-                  </div>
-                </div>
+                <p className="text-xs md:text-sm text-slate-600 font-semibold">Joined by 200+ people this hour</p>
               </div>
             </div>
 
-            {/* RIGHT IMAGE */}
-            <div className="relative h-48 md:h-96 flex items-center justify-center rounded-3xl overflow-hidden bg-white">
-              <img src="/hero.svg" alt="WayloShare Community" className="w-full h-full object-cover" />
-            </div>
-          </div>
+            {/* RIGHT CONTENT - SEARCH CARD */}
+            <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-2xl shadow-emerald-200/30 border border-emerald-100 h-fit">
+              {/* SEARCH HEADING */}
+              <h3 className="text-lg md:text-xl font-black text-slate-900 mb-4 md:mb-5">Where are you heading?</h3>
 
-          {/* BOTTOM SEARCH BAR */}
-          <div className="bg-white rounded-full p-2 md:p-3 shadow-lg shadow-blue-200/50 border border-blue-100 flex flex-col md:flex-row items-center gap-2">
-            <div className="flex-1 w-full bg-blue-50 rounded-full p-2 md:p-4 flex items-center gap-2 md:gap-3">
-              <MapPin size={18} md:size={24} className="text-blue-400 flex-shrink-0" />
-              <input type="text" placeholder="From..." className="bg-transparent outline-none w-full text-xs md:text-base text-slate-800 font-bold placeholder-slate-400" />
+              {/* SEARCH INPUTS */}
+              <div className="space-y-3 md:space-y-4 mb-4 md:mb-5">
+                {/* FROM INPUT */}
+                <div className="flex items-center gap-2 md:gap-3 bg-slate-50 rounded-lg md:rounded-xl p-3 md:p-4 border border-slate-200">
+                  <MapPin size={16} className="text-slate-400 flex-shrink-0" />
+                  <input 
+                    type="text" 
+                    placeholder="Leaving from..." 
+                    className="bg-transparent outline-none w-full text-xs md:text-sm text-slate-800 placeholder-slate-400 font-medium"
+                  />
+                </div>
+
+                {/* TO INPUT */}
+                <div className="flex items-center gap-2 md:gap-3 bg-slate-50 rounded-lg md:rounded-xl p-3 md:p-4 border border-slate-200">
+                  <MapPin size={16} className="text-slate-400 flex-shrink-0" />
+                  <input 
+                    type="text" 
+                    placeholder="Going to..." 
+                    className="bg-transparent outline-none w-full text-xs md:text-sm text-slate-800 placeholder-slate-400 font-medium"
+                  />
+                </div>
+
+                {/* DATE INPUT */}
+                <div className="flex items-center gap-2 md:gap-3 bg-slate-50 rounded-lg md:rounded-xl p-3 md:p-4 border border-slate-200">
+                  <Calendar size={16} className="text-slate-400 flex-shrink-0" />
+                  <input 
+                    type="text" 
+                    placeholder="Date" 
+                    className="bg-transparent outline-none w-full text-xs md:text-sm text-slate-800 placeholder-slate-400 font-medium"
+                  />
+                </div>
+              </div>
+
+              {/* SEARCH BUTTON */}
+              <button onClick={() => setShowWaitlist(true)} className="w-full bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg md:rounded-xl py-3 md:py-4 font-black text-sm md:text-base transition-colors shadow-lg shadow-emerald-500/30 flex items-center justify-center gap-2">
+                <span>🔍</span>
+                <span>Search</span>
+              </button>
             </div>
-            <div className="hidden md:block w-px h-8 bg-blue-200"></div>
-            <div className="flex-1 w-full bg-yellow-50 rounded-full p-2 md:p-4 flex items-center gap-2 md:gap-3">
-              <MapPin size={18} md:size={24} className="text-yellow-500 flex-shrink-0" />
-              <input type="text" placeholder="To..." className="bg-transparent outline-none w-full text-xs md:text-base text-slate-800 font-bold placeholder-slate-400" />
-            </div>
-            <button onClick={() => setShowWaitlist(true)} className="w-full md:w-auto bg-gradient-to-r from-blue-400 to-cyan-400 text-white rounded-full py-2 md:py-4 px-4 md:px-12 font-bold text-xs md:text-base hover:scale-105 transition-transform shadow-lg shadow-blue-300/30">Search</button>
           </div>
         </div>
       </div>
