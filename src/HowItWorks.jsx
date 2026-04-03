@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 export default function HowItWorks() {
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-12 md:pb-20">
+    <div className="min-h-screen bg-white font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-0 md:pb-0">
       {/* NAVBAR */}
       <Navbar />
 

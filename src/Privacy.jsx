@@ -6,17 +6,17 @@ import Footer from './components/Footer';
 
 export default function Privacy() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-yellow-50 to-purple-50 font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-12 md:pb-20">
+    <div className="min-h-screen bg-white font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-0 md:pb-0">
       {/* NAVBAR */}
       <Navbar />
 
       {/* HERO */}
       <div className="w-full max-w-6xl mb-12 px-4">
-        <div className="bg-gradient-to-r from-purple-300 to-pink-300 rounded-[3rem] p-12 md:p-16 text-white text-center shadow-2xl">
+        <div className="bg-transparent rounded-[3rem] p-12 md:p-16 text-slate-900 text-center shadow-none">
           <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight tracking-tighter">
-            Your Privacy <span className="text-yellow-200">Matters</span>
+            Your Privacy <span className="text-blue-600">Matters</span>
           </h1>
-          <p className="text-lg text-white/95 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-700 max-w-2xl mx-auto">
             We're transparent about how we collect, use, and protect your data
           </p>
         </div>

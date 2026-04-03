@@ -50,7 +50,7 @@ export default function Blog() {
     },
     {
       id: 5,
-      title: "Ladies-Only Rides: Empowering Women Commuters",
+      title: "Pink-Rides: Empowering Women Commuters",
       excerpt: "How our women-focused ride option is creating safer, more comfortable commuting experiences.",
       category: "Women Safety",
       author: "Priya Sharma",
@@ -77,15 +77,30 @@ export default function Blog() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-yellow-50 to-purple-50 font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-8 md:pb-20">
+    <div className="min-h-screen bg-white font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-0 md:pb-0">
       {/* NAVBAR */}
       <Navbar />
 
       {/* HERO SECTION */}
       <div className="w-full mb-8 md:mb-12">
+        <style>{`
+          @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+          .gradient-animate-stories {
+            background: linear-gradient(-45deg, #1976D2, #00BCD4, #4CAF50, #1976D2);
+            background-size: 300% 300%;
+            animation: gradient-shift 6s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+          }
+        `}</style>
         <div className="bg-transparent rounded-none md:rounded-none p-6 md:p-16 text-white text-center">
-          <h1 className="text-3xl md:text-6xl font-black mb-3 md:mb-6 leading-tight tracking-tighter text-slate-900">
-            Wayloshare <span className="text-blue-600">Stories</span>
+          <h1 className="text-3xl md:text-6xl font-black mb-3 md:mb-6 leading-tight tracking-tighter gradient-animate-stories">
+            Wayloshare Stories
           </h1>
           <p className="text-sm md:text-lg text-slate-700 max-w-2xl mx-auto mb-4 md:mb-8">
             Tips, stories, and insights from our community of smart commuters

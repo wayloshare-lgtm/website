@@ -18,7 +18,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-yellow-50 to-purple-50 font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-12 md:pb-20">
+    <div className="min-h-screen bg-white font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-0 md:pb-0">
       {/* NAVBAR */}
       <Navbar />
 
@@ -41,7 +41,7 @@ export default function Contact() {
             {
               icon: <Mail size={40} />,
               title: "Email",
-              info: "support@wayloshare.com",
+              info: "info@wayloshare.com",
               color: "blue"
             },
             {
@@ -128,7 +128,7 @@ export default function Contact() {
         <h2 className="text-4xl font-black text-slate-900 mb-10 text-center">Frequently Asked Questions</h2>
         <div className="space-y-4">
           {[
-            { q: "What's the best way to contact support?", a: "Email us at support@wayloshare.com or call +91 1800-WAYSAFE. We respond within 24 hours." },
+            { q: "What's the best way to contact support?", a: "Email us at info@wayloshare.com or call +91 1800-WAYSAFE. We respond within 24 hours." },
             { q: "Do you have a physical office?", a: "Yes! Visit us in Bangalore. We're open Monday-Friday, 9 AM - 6 PM IST." },
             { q: "How can I report a problem?", a: "Use the in-app support feature or email us directly with details about your issue." }
           ].map((faq, i) => (

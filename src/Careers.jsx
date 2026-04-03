@@ -107,7 +107,7 @@ export default function Careers() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-yellow-50 to-purple-50 font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-12 md:pb-20">
+    <div className="min-h-screen bg-white font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-0 md:pb-0">
       {/* NAVBAR */}
       <Navbar />
 
@@ -144,7 +144,7 @@ export default function Careers() {
 
       {/* WHY JOIN US */}
       <div className="w-full max-w-6xl mb-12 px-4">
-        <h2 className="text-4xl font-black text-slate-900 mb-10 text-center">Why Join Wayloshare?</h2>
+        <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-10 text-center">Why Join Wayloshare?</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {[
             { icon: '🚀', title: 'Impact', desc: 'Work on a mission that changes how millions commute' },
@@ -154,7 +154,7 @@ export default function Careers() {
             { icon: '🤝', title: 'Culture', desc: 'Work in a collaborative, supportive environment' },
             { icon: '⚡', title: 'Flexibility', desc: 'Flexible work arrangements and remote options' }
           ].map((reason, i) => (
-            <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-blue-200 shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all">
+            <div key={i} className="bg-white p-8 rounded-[2.5rem] border-4 border-black shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all">
               <div className="text-5xl mb-4">{reason.icon}</div>
               <h3 className="font-bold text-xl text-slate-900 mb-2">{reason.title}</h3>
               <p className="text-slate-600">{reason.desc}</p>
@@ -165,7 +165,7 @@ export default function Careers() {
 
       {/* OPEN POSITIONS */}
       <div className="w-full max-w-6xl mb-12 px-4">
-        <h2 className="text-4xl font-black text-slate-900 mb-10 text-center">Open Positions</h2>
+        <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-10 text-center">We Are Hiring!</h2>
         
       {/* CV SUBMISSION FORM */}
       <div className="w-full max-w-6xl mb-12 px-4">

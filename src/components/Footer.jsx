@@ -1,152 +1,154 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Linkedin } from 'lucide-react';
+import { Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
-export default function Footer() {
+export default function Footer({ onDownloadApp }) {
   return (
-    <footer className="w-full bg-white border-t border-slate-200 py-8 md:py-16 px-4 md:px-6">
+    <footer className="w-full bg-slate-900 text-white py-12 md:py-20 px-4 md:px-6 mb-0">
       <div className="max-w-7xl mx-auto">
         {/* TOP SECTION */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 md:gap-12 mb-8 md:mb-16">
-          {/* LEFT - LOGO & SOCIALS */}
-          <div className="col-span-1 sm:col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2 mb-4 md:mb-6">
-              <img src="/Applauncher.svg" alt="WayloShare" className="w-6 md:w-8 h-6 md:h-8 rounded-lg flex-shrink-0" />
-              <span className="text-lg md:text-2xl font-black text-slate-900">WayloShare</span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 mb-12 md:mb-16">
+          {/* BRAND SECTION */}
+          <div className="lg:col-span-1">
+            <div className="flex items-center gap-2 mb-6">
+              <img src="/Applauncher.svg" alt="WayloShare" className="w-8 h-8 rounded-lg flex-shrink-0" />
+              <span className="text-2xl font-black">WayloShare</span>
             </div>
-            <div className="flex gap-4 mb-4 md:mb-6">
-              <a href="https://www.instagram.com/wayloshare?igsh=MTJ3cThsMXRod3FnbA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-blue-600 transition-colors">
+            <p className="text-sm text-slate-400 mb-6 leading-relaxed">
+              Revolutionizing commute in India with safe, affordable, and eco-friendly carpooling.
+            </p>
+            {/* SOCIAL LINKS */}
+            <div className="flex gap-4">
+              <a href="https://www.instagram.com/wayloshare?igsh=MTJ3cThsMXRod3FnbA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-emerald-500 transition-colors">
                 <Instagram size={18} />
               </a>
-              <a href="https://x.com/WayloShareApp" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-900 transition-colors">
+              <a href="https://x.com/WayloShareApp" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-emerald-500 transition-colors">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.207-6.807-5.974 6.807H2.882l7.732-8.835L1.227 2.25h6.836l4.702 6.217 5.447-6.217zM17.15 18.75h1.828L6.122 3.97H4.231l12.919 14.78z"/>
                 </svg>
               </a>
-              <a href="#" className="text-slate-600 hover:text-blue-600 transition-colors">
-                <Facebook size={18} />
-              </a>
-              <a href="https://www.linkedin.com/company/wayloshare-private-limited/" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-blue-600 transition-colors">
+              <a href="https://www.linkedin.com/company/wayloshare-private-limited/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-emerald-500 transition-colors">
                 <Linkedin size={18} />
               </a>
             </div>
-            <select className="border border-slate-300 rounded-lg px-3 md:px-4 py-2 text-xs md:text-sm font-medium text-slate-700 bg-white hover:border-slate-400 transition-colors w-full md:w-auto">
-              <option>English</option>
-              <option>Hindi</option>
-              <option>Spanish</option>
-            </select>
           </div>
 
-          {/* COLUMN 1 */}
+          {/* PRODUCT */}
           <div>
-            <Link to="/careers" className="font-bold text-slate-900 mb-3 md:mb-4 flex items-center gap-2 text-sm md:text-base hover:text-blue-600 transition-colors">
-              🎯 We're hiring!
-            </Link>
-            <ul className="space-y-2 md:space-y-3">
+            <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Product</h4>
+            <ul className="space-y-3">
               <li>
-                <Link to="/careers" className="text-xs md:text-sm text-slate-600 hover:text-blue-600 transition-colors">
-                  Download our app
+                <Link to="/how-it-works/rider" className="text-sm text-slate-400 hover:text-emerald-400 transition-colors">
+                  For Passengers
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="text-xs md:text-sm text-slate-600 hover:text-blue-600 transition-colors">
-                  Sign up
+                <Link to="/how-it-works/driver" className="text-sm text-slate-400 hover:text-emerald-400 transition-colors">
+                  For Drivers
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="text-xs md:text-sm text-slate-600 hover:text-blue-600 transition-colors">
-                  Log in
+                <Link to="/safety" className="text-sm text-slate-400 hover:text-emerald-400 transition-colors">
+                  Safety Features
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* COLUMN 2 */}
+          {/* COMPANY */}
           <div>
-            <Link to="/how-it-works" className="font-bold text-slate-900 mb-3 md:mb-4 text-sm md:text-base hover:text-blue-600 transition-colors block">How it works</Link>
-            <ul className="space-y-2 md:space-y-3">
+            <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Company</h4>
+            <ul className="space-y-3">
               <li>
-                <Link to="/how-it-works/rider" className="text-xs md:text-sm text-slate-600 hover:text-blue-600 transition-colors">
-                  Passengers
+                <Link to="/careers" className="text-sm text-slate-400 hover:text-emerald-400 transition-colors">
+                  Careers
                 </Link>
               </li>
               <li>
-                <Link to="/how-it-works/driver" className="text-xs md:text-sm text-slate-600 hover:text-blue-600 transition-colors">
-                  Drivers
+                <Link to="/contact" className="text-sm text-slate-400 hover:text-emerald-400 transition-colors">
+                  Contact Us
                 </Link>
               </li>
               <li>
-                <Link to="/safety" className="text-xs md:text-sm text-slate-600 hover:text-blue-600 transition-colors">
-                  Trust & Safety
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* COLUMN 3 */}
-          <div>
-            <h3 className="font-bold text-slate-900 mb-3 md:mb-4 text-sm md:text-base">For students</h3>
-            <ul className="space-y-2 md:space-y-3">
-              <li>
-                <Link to="/blogs" className="text-xs md:text-sm text-slate-600 hover:text-blue-600 transition-colors">
-                  Events & festivals
-                </Link>
-              </li>
-              <li>
-                <Link to="/blogs" className="text-xs md:text-sm text-slate-600 hover:text-blue-600 transition-colors">
-                  News
-                </Link>
-              </li>
-              <li>
-                <Link to="/blogs" className="text-xs md:text-sm text-slate-600 hover:text-blue-600 transition-colors">
+                <Link to="/blogs" className="text-sm text-slate-400 hover:text-emerald-400 transition-colors">
                   Blog
                 </Link>
               </li>
+              <li>
+                <a href="#" className="text-sm text-slate-400 hover:text-emerald-400 transition-colors">
+                  Press
+                </a>
+              </li>
             </ul>
           </div>
 
-          {/* COLUMN 4 */}
+          {/* LEGAL */}
           <div>
-            <h3 className="font-bold text-slate-900 mb-3 md:mb-4 text-sm md:text-base">About</h3>
-            <ul className="space-y-2 md:space-y-3">
+            <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Legal</h4>
+            <ul className="space-y-3">
               <li>
-                <Link to="/contact" className="text-xs md:text-sm text-slate-600 hover:text-blue-600 transition-colors">
-                  Impact
+                <Link to="/privacy" className="text-sm text-slate-400 hover:text-emerald-400 transition-colors">
+                  Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-xs md:text-sm text-slate-600 hover:text-blue-600 transition-colors">
-                  Locations
+                <Link to="/community-guidelines" className="text-sm text-slate-400 hover:text-emerald-400 transition-colors">
+                  Terms of Service
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-xs md:text-sm text-slate-600 hover:text-blue-600 transition-colors">
-                  Help
+                <Link to="/cancellation-policy" className="text-sm text-slate-400 hover:text-emerald-400 transition-colors">
+                  Cancellation Policy
                 </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* CONTACT */}
+          <div>
+            <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Get in Touch</h4>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <Mail size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                <a href="mailto:support@wayloshare.com" className="text-sm text-slate-400 hover:text-emerald-400 transition-colors">
+                  info@wayloshare.com
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <Phone size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                <a href="tel:+919876543210" className="text-sm text-slate-400 hover:text-emerald-400 transition-colors">
+                  +91 9876 543 210
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <MapPin size={16} className="text-emerald-400 flex-shrink-0 mt-0.5" />
+                <span className="text-sm text-slate-400">
+                  Bangalore, India
+                </span>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* BOTTOM SECTION */}
-        <div className="border-t border-slate-200 pt-6 md:pt-12">
-          <p className="text-xs text-slate-500 mb-6 md:mb-8">
-            © WayloShare 2026 | 
-            <Link to="/privacy" className="hover:text-blue-600 transition-colors ml-1">Privacy</Link> | 
-            <Link to="/community-guidelines" className="hover:text-blue-600 transition-colors ml-1">Terms</Link>
-          </p>
+        {/* DIVIDER */}
+        <div className="border-t border-slate-800 my-8 md:my-12"></div>
 
-          {/* PROUDLY MADE IN INDIA */}
-          <div className="flex flex-col md:flex-row gap-4 md:gap-12 items-start md:items-center">
-            <div className="w-28 md:w-32 h-20 md:h-24 flex-shrink-0 rounded-2xl overflow-hidden">
+        {/* BOTTOM SECTION */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          {/* LEFT - COPYRIGHT */}
+          <div className="text-center md:text-left">
+            <p className="text-sm text-slate-400">
+              © 2026 WayloShare. All rights reserved. | 
+              <Link to="/privacy" className="text-emerald-400 hover:text-emerald-300 transition-colors ml-2">Privacy</Link> | 
+              <Link to="/community-guidelines" className="text-emerald-400 hover:text-emerald-300 transition-colors ml-2">Terms</Link>
+            </p>
+          </div>
+
+          {/* RIGHT - MADE IN INDIA */}
+          <div className="flex items-center gap-3">
+            <span className="text-sm text-slate-400">Proudly Made in</span>
+            <div className="w-12 h-8 rounded-lg overflow-hidden bg-white p-1">
               <img src="/footer.jpeg" alt="Made in India" className="w-full h-full object-contain" />
-            </div>
-            <div className="flex-1">
-              <h4 className="font-bold text-slate-900 mb-1 md:mb-2 text-sm md:text-base">Proudly Made in India</h4>
-              <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
-                We acknowledge that WayloShare operates on the traditional, ancestral and unceded territories of the Indian subcontinent. 
-                <a href="#" className="text-blue-600 hover:underline ml-1">More info</a>
-              </p>
             </div>
           </div>
         </div>

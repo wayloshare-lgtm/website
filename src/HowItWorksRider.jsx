@@ -6,20 +6,20 @@ import Footer from './components/Footer';
 
 export default function HowItWorksRider() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-yellow-50 to-purple-50 font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-12 md:pb-20">
+    <div className="min-h-screen bg-white font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-0 md:pb-0">
       {/* NAVBAR */}
       <Navbar />
 
       {/* HERO */}
       <div className="w-full mb-12">
-        <div className="bg-gradient-to-r from-blue-300 to-cyan-300 rounded-xl md:rounded-[3rem] p-8 md:p-24 text-white text-center shadow-2xl min-h-80 md:min-h-96 flex flex-col justify-center">
-          <Link to="/how-it-works" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-4 transition-colors">
+        <div className="bg-transparent rounded-xl md:rounded-[3rem] p-8 md:p-24 text-slate-900 text-center shadow-none min-h-80 md:min-h-96 flex flex-col justify-center">
+          <Link to="/how-it-works" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 mb-4 transition-colors">
             <ArrowLeft size={20} /> Back
           </Link>
           <h1 className="text-3xl md:text-6xl font-black mb-4 md:mb-6 leading-tight tracking-tighter">
-            How to Book a <span className="text-yellow-200">Ride</span>
+            How to Book a <span className="text-blue-600">Ride</span>
           </h1>
-          <p className="text-sm md:text-lg text-white/95 max-w-2xl mx-auto">
+          <p className="text-sm md:text-lg text-slate-700 max-w-2xl mx-auto">
             Get from point A to point B while saving money and meeting new people in your community
           </p>
         </div>

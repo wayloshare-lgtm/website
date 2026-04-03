@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 
 export default function Safety() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-yellow-50 to-purple-50 font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-12 md:pb-20">
+    <div className="min-h-screen bg-white font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-0 md:pb-0">
       {/* NAVBAR */}
       <Navbar />
 
@@ -22,7 +22,7 @@ export default function Safety() {
             Trust & Safety
           </h1>
           <p className="text-sm md:text-lg text-slate-700 max-w-2xl mx-auto">
-            Since 2015, members have safely shared over 400 million km on WayloShare.
+           Delivering reliable support with care, integrity, and security.
           </p>
         </div>
       </div>
@@ -47,8 +47,8 @@ export default function Safety() {
             },
             {
               icon: <Heart size={40} />,
-              color: "red",
-              title: "Ladies-Only Rides",
+              color: "pink",
+              title: "Pink Rides",
               desc: "Safe, women-only ride options for maximum comfort and security."
             },
             {
@@ -76,10 +76,14 @@ export default function Safety() {
               desc: "One-tap emergency button to alert authorities and contacts."
             }
           ].map((feature, i) => (
-            <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-blue-200 shadow-sm hover:shadow-lg transition-all">
+            <div key={i} className={`p-8 rounded-[2.5rem] border shadow-sm hover:shadow-lg transition-all ${
+              feature.color === 'pink' 
+                ? 'bg-pink-50 border-pink-200 hover:bg-pink-100 hover:border-pink-400' 
+                : 'bg-white border-blue-200 hover:border-blue-400'
+            }`}>
               <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 text-white ${
                 feature.color === 'blue' ? 'bg-blue-400' :
-                feature.color === 'red' ? 'bg-red-400' :
+                feature.color === 'pink' ? 'bg-pink-400' :
                 feature.color === 'yellow' ? 'bg-yellow-400' :
                 feature.color === 'green' ? 'bg-green-400' :
                 feature.color === 'purple' ? 'bg-purple-400' :
@@ -105,9 +109,9 @@ export default function Safety() {
               { number: "24/7", label: "Support Available" },
               { number: "100%", label: "Commitment to Safety" }
             ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-4xl font-black text-blue-600 mb-2">{stat.number}</div>
-                <p className="text-slate-700 font-bold">{stat.label}</p>
+              <div key={i} className="text-center flex flex-col items-center justify-center h-full">
+                <div className="text-3xl md:text-4xl font-black text-blue-600 mb-3 line-clamp-2">{stat.number}</div>
+                <p className="text-sm md:text-base text-slate-700 font-bold">{stat.label}</p>
               </div>
             ))}
           </div>

@@ -39,7 +39,7 @@ export default function CancellationPolicy() {
       ]
     },
     {
-      title: "Trip Organizer Cancellation Policy",
+      title: "Drivers Cancellation Policy",
       icon: "🚙",
       sections: [
         {
@@ -90,20 +90,18 @@ export default function CancellationPolicy() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-yellow-50 to-purple-50 font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-12 md:pb-20">
+    <div className="min-h-screen bg-white font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-0 md:pb-0">
       {/* NAVBAR */}
       <Navbar />
 
       {/* HERO SECTION */}
       <div className="w-full max-w-6xl mb-12 px-4">
-        <div className="bg-gradient-to-r from-red-300 via-orange-300 to-yellow-300 rounded-[3rem] p-12 md:p-16 text-white text-center shadow-2xl overflow-hidden relative">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -z-10 animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="bg-transparent rounded-[3rem] p-12 md:p-16 text-white text-center shadow-none overflow-hidden relative">
           
-          <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight tracking-tighter relative z-10">
+          <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight tracking-tighter relative z-10 text-slate-900">
             Cancellation & Refund Policy
           </h1>
-          <p className="text-lg text-white/95 max-w-2xl mx-auto relative z-10">
+          <p className="text-lg text-slate-700 max-w-2xl mx-auto relative z-10">
             Clear, transparent policies for cancellations and refunds. We believe in fairness for all carpoolers.
           </p>
         </div>

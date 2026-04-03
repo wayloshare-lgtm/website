@@ -27,7 +27,7 @@ export default function AppRouter() {
         <Route path="/how-it-works/rider" element={<HowItWorksRider />} />
         <Route path="/how-it-works/driver" element={<HowItWorksDriver />} />
         <Route path="/careers" element={<Careers />} />
-        <Route path="/cancellation" element={<CancellationPolicy />} />
+        <Route path="/cancellation-policy" element={<CancellationPolicy />} />
         <Route path="/community-guidelines" element={<CommunityGuidelines />} />
       </Routes>
     </Router>

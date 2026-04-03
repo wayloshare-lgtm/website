@@ -114,20 +114,33 @@ export default function CommunityGuidelines() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-yellow-50 to-purple-50 font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-12 md:pb-20">
+    <div className="min-h-screen bg-white font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-0 md:pb-0">
       {/* NAVBAR */}
       <Navbar />
 
       {/* HERO SECTION */}
       <div className="w-full max-w-6xl mb-12 px-4">
-        <div className="bg-gradient-to-r from-green-300 via-emerald-300 to-teal-300 rounded-[3rem] p-12 md:p-16 text-white text-center shadow-2xl overflow-hidden relative">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -z-10 animate-pulse" style={{animationDelay: '1s'}}></div>
+        <style>{`
+          @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+          .gradient-animate-community {
+            background: linear-gradient(-45deg, #1976D2, #00BCD4, #4CAF50, #1976D2);
+            background-size: 300% 300%;
+            animation: gradient-shift 6s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+          }
+        `}</style>
+        <div className="bg-transparent rounded-[3rem] p-12 md:p-16 text-white text-center shadow-none overflow-hidden relative">
           
           <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight tracking-tighter relative z-10">
-            Community <span className="text-yellow-200">Guidelines</span>
+            <span className="gradient-animate-community">Community</span> <span className="text-slate-900">Guidelines</span>
           </h1>
-          <p className="text-lg text-white/95 max-w-2xl mx-auto relative z-10">
+          <p className="text-lg text-slate-700 max-w-2xl mx-auto relative z-10">
             Our community thrives on respect, safety, and mutual trust. These guidelines help us maintain a positive environment for everyone.
           </p>
         </div>
@@ -139,15 +152,17 @@ export default function CommunityGuidelines() {
           {guidelines.map((guideline, idx) => (
             <div key={idx} className="bg-white rounded-[2.5rem] border border-blue-200 shadow-sm overflow-hidden hover:shadow-lg transition-all">
               <div className="bg-gradient-to-r from-green-400 to-teal-400 p-8 text-white">
-                <div className="text-5xl mb-3">{guideline.icon}</div>
-                <h2 className="text-2xl font-black">{guideline.title}</h2>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="text-5xl">{guideline.icon}</div>
+                  <h2 className="text-2xl font-black">{guideline.title}</h2>
+                </div>
               </div>
               
               <div className="p-8 space-y-4">
                 {guideline.rules.map((rule, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <HiCheckCircle size={20} className="text-green-500 flex-shrink-0 mt-1" />
-                    <p className="text-slate-700 leading-relaxed">{rule}</p>
+                    <p className="text-slate-700 leading-relaxed text-base md:text-lg">{rule}</p>
                   </div>
                 ))}
               </div>
