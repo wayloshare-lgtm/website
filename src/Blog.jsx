@@ -77,7 +77,7 @@ export default function Blog() {
   );
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-0 md:pb-0">
+    <div className="min-h-screen bg-white font-sans text-slate-800 flex flex-col items-center overflow-x-hidden pb-8 md:pb-20">
       {/* NAVBAR */}
       <Navbar />
 

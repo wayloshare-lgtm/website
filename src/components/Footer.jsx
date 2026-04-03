@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
-export default function Footer({ onDownloadApp }) {
+export default function Footer() {
   return (
-    <footer className="w-full bg-slate-900 text-white py-12 md:py-20 px-4 md:px-6 mb-0">
+    <footer className="w-full bg-slate-900 text-white py-12 md:py-20 px-4 md:px-6 mb-0 pb-0">
       <div className="max-w-7xl mx-auto">
         {/* TOP SECTION */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 mb-12 md:mb-16">

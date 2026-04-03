@@ -14,7 +14,7 @@ export default function Privacy() {
       <div className="w-full max-w-6xl mb-12 px-4">
         <div className="bg-transparent rounded-[3rem] p-12 md:p-16 text-slate-900 text-center shadow-none">
           <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight tracking-tighter">
-            Your Privacy <span className="text-blue-600">Matters</span>
+            Your Privacy <span className="text-purple-600">Matters</span>
           </h1>
           <p className="text-lg text-slate-700 max-w-2xl mx-auto">
             We're transparent about how we collect, use, and protect your data
