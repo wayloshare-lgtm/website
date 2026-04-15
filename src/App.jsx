@@ -154,8 +154,8 @@ export default function App() {
               </div>
 
               {/* RIGHT IMAGE */}
-              <div className="relative h-48 md:h-64 flex items-center justify-center rounded-2xl overflow-hidden bg-white">
-                <img src="/hero section image .png" alt="WayloShare" className="w-full h-full object-cover" />
+              <div className="relative h-64 md:h-96 flex items-center justify-center rounded-2xl overflow-hidden bg-white">
+                <img src="/hero section image.jpeg" alt="WayloShare" className="w-full h-full object-cover object-center" />
               </div>
             </div>
 
